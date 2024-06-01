@@ -9,7 +9,7 @@ import { TextState } from '@/types/controls/text';
 import { FormProvider } from '@/contexts/FormProvider';
 
 // Components
-import { Text } from '@/components/controls/Text';
+import { Select } from '@/index';
 
 const Page = () => {
   const [validate, setValidate] = useState<boolean>(false);
@@ -28,7 +28,8 @@ const Page = () => {
   return (
     <FormProvider>
       <form onSubmit={processForm}>
-        <Text
+        <Select
+          options={[]}
           label={'Foo'}
           state={state}
           helpMessage={'Bar'}

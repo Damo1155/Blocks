@@ -1,21 +1,15 @@
-import { ReactNode } from 'react';
-
 // Types
 import {
   BaseInputConfiguration,
   BaseValidationConfiguration,
+  BaselineControlsConfiguration,
   RestrictedControlConfiguration,
 } from '@/types/controls/shared';
 import { BaseValidationRules, RegexConfig } from '@/types/validation/rules';
 
 export type TextProps = {
-  id?: string;
-  name?: string;
-  hideLabel?: boolean;
   placeholder?: string;
-  helpMessage?: ReactNode;
 
-  label: string;
   state: TextState;
   onChange: (state: TextState) => void;
 
@@ -23,7 +17,8 @@ export type TextProps = {
   validationRules?: TextValidationRules;
 } & BaseInputConfiguration &
   BaseValidationConfiguration &
-  RestrictedControlConfiguration;
+  RestrictedControlConfiguration &
+  BaselineControlsConfiguration;
 
 export type TextState = {
   value: string;

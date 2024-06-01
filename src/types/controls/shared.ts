@@ -1,4 +1,4 @@
-import { KeyboardEvent, FocusEvent } from 'react';
+import { KeyboardEvent, FocusEvent, ReactNode } from 'react';
 
 export type BaseInputConfiguration = {
   onBlur?: (event: FocusEvent<HTMLInputElement>) => void;
@@ -22,4 +22,13 @@ export type BaseValidationConfiguration = {
 export type RestrictedControlConfiguration = {
   disabled?: boolean;
   readOnly?: boolean;
+};
+
+export type BaselineControlsConfiguration = {
+  /** If not provided will fallback to the React `useId` hook */
+  id?: string;
+  name?: string;
+  label: string;
+  hideLabel?: boolean;
+  helpMessage?: ReactNode;
 };

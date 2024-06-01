@@ -1,36 +1,33 @@
 'use client';
 
-import React, { useEffect, useState, FocusEvent, useId } from 'react';
+import React, { useId, useState, useEffect } from 'react';
 
 // Types
-import { TextProps } from '@/types/controls/text';
+import { SelectProps } from '@/types/controls/select';
 
 // Contexts
 import { useFormContext } from '@/contexts/FormProvider';
 
 // Services
-import { validate } from '@/services/validation/text';
+import { validate } from '@/services/validation/select';
+import { toKebabCase } from '@/services/utils/extensions/string';
 
 // Components
 import { ValidationMessage } from '@/components/display/ValidationMessage';
 
-export const Text = ({
+export const Select = ({
   id,
   name,
   label,
   state,
-  onBlur,
-  onKeyUp,
-  onChange,
-  disabled,
+  options,
   readOnly,
-  hideLabel,
+  onChange,
   forceReset,
   helpMessage,
-  placeholder,
   validationRules,
   validate: triggerValidation,
-}: TextProps) => {
+}: SelectProps) => {
   const uniqueId = useId();
   const componentId = id ?? uniqueId;
   const { validationMessages } = useFormContext();
@@ -39,32 +36,26 @@ export const Text = ({
     undefined,
   );
 
-  const onInputChange = (value: string) => {
+  const onSelectChange = (value: string) => {
+    if (readOnly) {
+      return;
+    }
+
+    const isValid = validateWithMessages(value);
+
+    onChange({ value: value, isValid: isValid });
+  };
+
+  const validateWithMessages = (value: string) => {
     const validationMessage = validate({
       value: value,
       ruleSet: validationRules,
       validationMessages: validationMessages,
     });
 
-    onChange({ value: value, isValid: !validationMessage });
-  };
-
-  const validateWithMessages = () => {
-    const validationMessage = validate({
-      value: state.value,
-      ruleSet: validationRules,
-      validationMessages: validationMessages,
-    });
-
     setErrorMessage(validationMessage);
-  };
 
-  const onInputBlur = (event: FocusEvent<HTMLInputElement>) => {
-    event.preventDefault();
-
-    onBlur?.(event);
-
-    validateWithMessages();
+    return validationMessage === '' || validationMessage === undefined;
   };
 
   useEffect(() => {
@@ -72,7 +63,7 @@ export const Text = ({
       return;
     }
 
-    validateWithMessages();
+    validateWithMessages(state.value);
   }, [triggerValidation]);
 
   useEffect(() => {
@@ -104,30 +95,32 @@ export const Text = ({
     onChange({ value: state.value, isValid: !validationMessage });
   }, []);
 
+  // TODO   :   Render within an optgroup
   return (
     <div>
-      {!hideLabel && <label htmlFor={componentId}>{label}</label>}
+      <label htmlFor={componentId}>{label}</label>
 
       {helpMessage && <div>{helpMessage}</div>}
 
-      <input
-        type="text"
+      {errorMessage && <ValidationMessage>{errorMessage}</ValidationMessage>}
+
+      <select
         name={name}
         id={componentId}
-        onKeyUp={onKeyUp}
-        disabled={disabled}
-        readOnly={readOnly}
         value={state.value}
-        onBlur={onInputBlur}
-        placeholder={placeholder}
-        maxLength={validationRules?.maxLength}
-        minLength={validationRules?.minLength}
-        aria-required={validationRules?.required}
-        aria-label={hideLabel ? label : undefined}
-        onChange={(event) => onInputChange(event.target.value)}
-      />
-
-      {errorMessage && <ValidationMessage>{errorMessage}</ValidationMessage>}
+        aria-required={validationRules?.required ? true : false}
+        onChange={(event) => onSelectChange(event.target.value)}
+      >
+        {options.map(({ value, disabled, text }) => (
+          <option
+            value={value}
+            disabled={disabled}
+            key={`select-option-${toKebabCase(value ?? '')}`}
+          >
+            {text}
+          </option>
+        ))}
+      </select>
     </div>
   );
 };
