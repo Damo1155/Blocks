@@ -1,7 +1,7 @@
 {
   "name": "elements",
   "version": "0.0.1-alpha",
-  "description": "React component library which works with SSR and Client Side environments",
+  "description": "React component library designed to work with SSR and Client Side environments.",
   "main": "src/index.ts",
   "scripts": {
     "prepare": "husky",
@@ -29,7 +29,10 @@
     "typescript": "^5.4.5"
   },
   "dependencies": {
+    "@types/validator": "^13.11.10",
+    "classnames": "^2.5.1",
     "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "react-dom": "^18.3.1",
+    "validator": "^13.12.0"
   }
 }
