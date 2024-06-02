@@ -1,43 +1,53 @@
 'use client';
 
-import React, { useEffect, useState, FocusEvent, useId } from 'react';
+import React, { useId, FocusEvent, useState, useEffect } from 'react';
 
 // Types
-import { TextProps } from '@/types/controls/text';
+import { TextAreaProps } from '@/types/controls/textArea';
 
 // Contexts
 import { useFormContext } from '@/contexts/FormProvider';
 
 // Services
-import { validate } from '@/services/validation/text';
+import { validate } from '@/services/validation/textarea';
 
 // Components
 import { ValidationMessage } from '@/components/display/ValidationMessage';
 
-export const Text = ({
+export const TextArea = ({
   id,
+  rows,
   name,
   label,
   state,
   onBlur,
-  onKeyUp,
-  onChange,
-  disabled,
   readOnly,
+  disabled,
+  onChange,
   hideLabel,
   forceReset,
   helpMessage,
   placeholder,
   validationRules,
   validate: triggerValidation,
-}: TextProps) => {
+}: TextAreaProps) => {
   const uniqueId = useId();
   const componentId = id ?? uniqueId;
   const { validationMessages } = useFormContext();
 
+  const [remainingCharacters, setRemainingCharacters] = useState<number>(0);
+
   const [errorMessage, setErrorMessage] = useState<string | undefined>(
     undefined,
   );
+
+  useEffect(() => {
+    if (validationRules?.maxLength !== undefined) {
+      setRemainingCharacters(
+        validationRules?.maxLength - state.value.toString().length,
+      );
+    }
+  }, [state.value]);
 
   const onInputChange = (value: string) => {
     const validationMessage = validate({
@@ -59,7 +69,7 @@ export const Text = ({
     setErrorMessage(validationMessage);
   };
 
-  const onInputBlur = (event: FocusEvent<HTMLInputElement>) => {
+  const onInputBlur = (event: FocusEvent<HTMLTextAreaElement>) => {
     event.preventDefault();
 
     onBlur?.(event);
@@ -108,20 +118,15 @@ export const Text = ({
     <div>
       {!hideLabel && <label htmlFor={componentId}>{label}</label>}
 
-      <input
-        type="text"
+      <textarea
+        rows={rows}
         name={name}
         id={componentId}
-        onKeyUp={onKeyUp}
+        value={state.value}
         disabled={disabled}
         readOnly={readOnly}
-        value={state.value}
         onBlur={onInputBlur}
         placeholder={placeholder}
-        maxLength={validationRules?.maxLength}
-        minLength={validationRules?.minLength}
-        aria-required={validationRules?.required}
-        aria-label={hideLabel ? label : undefined}
         onChange={(event) => onInputChange(event.target.value)}
       />
 

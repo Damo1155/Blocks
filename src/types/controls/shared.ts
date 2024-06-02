@@ -1,8 +1,10 @@
 import { KeyboardEvent, FocusEvent, ReactNode } from 'react';
 
+type SupportedInputTypes = HTMLInputElement | HTMLTextAreaElement;
+
 export type BaseInputConfiguration = {
-  onBlur?: (event: FocusEvent<HTMLInputElement>) => void;
-  onKeyUp?: (event: KeyboardEvent<HTMLInputElement>) => void;
+  onBlur?: (event: FocusEvent<SupportedInputTypes>) => void;
+  onKeyUp?: (event: KeyboardEvent<SupportedInputTypes>) => void;
 };
 
 export type BaseValidationConfiguration = {

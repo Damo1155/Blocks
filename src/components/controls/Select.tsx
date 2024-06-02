@@ -100,10 +100,6 @@ export const Select = ({
     <div>
       <label htmlFor={componentId}>{label}</label>
 
-      {helpMessage && <div>{helpMessage}</div>}
-
-      {errorMessage && <ValidationMessage>{errorMessage}</ValidationMessage>}
-
       <select
         name={name}
         id={componentId}
@@ -121,6 +117,10 @@ export const Select = ({
           </option>
         ))}
       </select>
+
+      {helpMessage && <div>{helpMessage}</div>}
+
+      {errorMessage && <ValidationMessage>{errorMessage}</ValidationMessage>}
     </div>
   );
 };

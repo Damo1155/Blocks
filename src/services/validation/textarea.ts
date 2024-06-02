@@ -1,15 +1,15 @@
-import { isEmpty, isNumeric } from 'validator';
+import { isEmpty } from 'validator';
 
 // Types
+import { TextAreaRules } from '@/types/controls/textArea';
 import { ValidationMessages } from '@/types/contexts/forms';
-import { TextValidationRules } from '@/types/controls/text';
 
 // Services
 import { manipulateContent } from '@/services/utils/resource';
 
 type ValidateRequest = {
   value: string;
-  ruleSet?: TextValidationRules;
+  ruleSet?: TextAreaRules;
   validationMessages: ValidationMessages;
 };
 
@@ -24,11 +24,7 @@ export const validate = ({
     return validationMessages.isRequired;
   }
 
-  if (ruleSet?.isNumeric && !isValueEmpty && !isNumeric(value)) {
-    return validationMessages.textNotNumeric;
-  }
-
-  if (ruleSet?.maxLength && value.length > ruleSet.maxLength) {
+  if (ruleSet?.maxLength !== undefined && value.length > ruleSet.maxLength) {
     return manipulateContent({
       content: validationMessages.textMaximumLength,
       replacements: { '{{MaxLength}}': ruleSet.maxLength.toString() },
@@ -44,10 +40,6 @@ export const validate = ({
       content: validationMessages.textMinimumLength,
       replacements: { '{{MinLength}}': ruleSet.minLength.toString() },
     });
-  }
-
-  if (ruleSet?.regex && !isEmpty(value) && !ruleSet.regex.pattern.test(value)) {
-    return ruleSet.regex.validationMessage;
   }
 
   return undefined;
