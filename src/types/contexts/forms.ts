@@ -15,6 +15,7 @@ export type ProviderProps = {
 export type ValidationMessages = {
   isRequired: string;
   textNotNumeric: string;
+  invalidPostalCode: string;
 
   /** Adding `{{MaxLength}}` to the content will update the text value to have the fields maximum length embedded */
   textMaximumLength: string;

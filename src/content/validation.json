@@ -1,6 +1,7 @@
 {
   "isRequired": "This field is required.",
   "notNumeric": "This field should be numeric",
+  "invalidPostalCode": "Invalid postcode provided",
   "exceededMaximumLength": "Maximum length should not exceed {{MaxLength}} characters.",
   "notExceededMinimumLength": "Minimum length should be at least {{MinLength}} characters."
 }
