@@ -21,9 +21,15 @@ export const validate = ({
   ruleSet,
   validationMessages,
 }: Validate): string | undefined => {
+  if (!ruleSet) {
+    return undefined;
+  }
+
+  const { required, min, max } = ruleSet;
+
   const valueToString = value.toString();
 
-  if (ruleSet?.required && isEmpty(valueToString)) {
+  if (required && isEmpty(valueToString)) {
     return validationMessages.isRequired ?? content.isRequired;
   }
 
@@ -31,16 +37,16 @@ export const validate = ({
     return validationMessages.textNotNumeric ?? content.notNumeric;
   }
 
-  if (ruleSet?.min !== undefined && value < ruleSet.min) {
+  if (min !== undefined && value < min) {
     return manipulateContent({
-      replacements: { '{{minimum}}': ruleSet.min.toString() },
+      replacements: { '{{minimum}}': min.toString() },
       content: validationMessages.numericMinNumber ?? content.numericMinNumber,
     });
   }
 
-  if (ruleSet?.max !== undefined && value > ruleSet.max) {
+  if (max !== undefined && value > max) {
     return manipulateContent({
-      replacements: { '{{maximum}}': ruleSet.max.toString() },
+      replacements: { '{{maximum}}': max.toString() },
       content: validationMessages.numericMaxNumber ?? content.numericMaxNumber,
     });
   }

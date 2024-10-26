@@ -25,6 +25,9 @@ type Validate = {
 };
 
 export const validate = (request: Validate): string | undefined => {
+  // Important  : Even if the `ruleSet` hasn't been provided we still need to
+  //              validate the underlying value to ensure it's a valid phone number.
+
   if (request.ruleSet?.required && isEmpty(request.value)) {
     return (
       request.validationMessages.isRequired ?? validationContent.isRequired

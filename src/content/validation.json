@@ -1,6 +1,7 @@
 {
   "optional": " (Optional)",
   "invalidPostalCode": "Invalid postcode provided",
+  "invalidEmail": "Invalid email address provided.",
 
   "isRequired": "This field is required.",
   "exceededMaximumLength": "Maximum length should not exceed {{maxLength}} characters.",

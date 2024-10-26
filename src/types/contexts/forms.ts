@@ -13,6 +13,7 @@ export type ProviderProps = {
 
 export type ValidationMessages = {
   isRequired?: string;
+  invalidEmail?: string;
   textNotNumeric?: string;
   invalidPostalCode?: string;
 

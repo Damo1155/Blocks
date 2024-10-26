@@ -4,3 +4,14 @@ TODOs
 - Update Password component to check password strength (can be done with validator.js)
 - Update Select component to support OptGroup
 - Update all control components to support onClick as an optional event
+- Update all control components to have the aria-describedby based on the helpMessage (maybe)
+- Standardise the naming convention on the Form Provider and Content rendered as part of validation (e.g. validationMessages.required ?? content.isRequired)
+- Fix the paths so they are either all absolute or relative
+- Embed a compiler in here to manage building the package for dist consumption
+- Following Control Components are still needed
+  - Date Picker
+  - Date of Birth
+  - Radio Group
+  - Checkbox Group
+  - Checkbox
+  - Slider/Progress Bar (maybe?)
