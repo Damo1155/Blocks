@@ -1,8 +1,8 @@
 // Types
 import {
   SelectionState,
-  CheckboxGroupValidationRules,
   CheckboxGroupProps,
+  CheckboxGroupValidationRules,
 } from '../../types/controls/checkboxGroup';
 import { ValidationMessages } from '@/types/contexts/forms';
 

@@ -17,5 +17,7 @@
 
   "checkboxGroupInvalidSelection": "Invalid selection.",
   "checkboxGroupMinSelected": "Select at least {{minimum}} option(s).",
-  "checkboxGroupMaxSelected": "Select no more than {{maximum}} option(s)."
+  "checkboxGroupMaxSelected": "Select no more than {{maximum}} option(s).",
+
+  "radioGroupSelectAnOption": "Please select an option."
 }

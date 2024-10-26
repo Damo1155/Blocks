@@ -12,6 +12,6 @@ TODOs
   - Date Picker
   - Date of Birth
   - Radio Group
-  - Checkbox Group
   - Slider/Progress Bar (maybe?)
 - If possible, get a branching policy embedded
+- Simplify the Checkbox Group state object to follow a similar pattern to Radio Group state and options properties

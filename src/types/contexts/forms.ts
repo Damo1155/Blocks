@@ -16,6 +16,7 @@ export type ValidationMessages = {
   invalidEmail?: string;
   textNotNumeric?: string;
   invalidPostalCode?: string;
+  radioGroupSelectAnOption?: string;
 
   /** Adding `{{maxLength}}` to the content will update the text value to have the fields maximum length embedded */
   textMaximumLength?: string;
