@@ -5,6 +5,7 @@
   "component-control-onChange-missing": "Ensure the `onChange` property has been provided",
   "component-control-validate-missing": "Ensure the `validate` property has been provided",
   "component-control-setValidate-missing": "Ensure the `setValidate` property has been provided",
+  "component-control-countryCode-missing": "Ensure the `countryCode` property has been provided",
   "component-control-validationRules-missing": "Ensure the `validationRules` property has been provided",
   "component-control-label-missing": "Ensure either tha `label` or `ariaLabel` has been provided. This is required for accessibility purposes."
 }

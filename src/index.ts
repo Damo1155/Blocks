@@ -3,7 +3,6 @@ import { Text } from './components/controls/Text';
 import { Email } from './components/controls/Email';
 import { Phone } from './components/controls/Phone';
 import { Select } from './components/controls/Select';
-import { Slider } from './components/controls/Slider';
 import { Switch } from './components/controls/Switch';
 import { Numeric } from './components/controls/Numeric';
 import { Password } from './components/controls/Password';
@@ -24,7 +23,6 @@ export {
   Email,
   Phone,
   Select,
-  Slider,
   Switch,
   Numeric,
   Password,

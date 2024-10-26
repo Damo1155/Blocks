@@ -1,5 +1,6 @@
 // Types
 import { TextProps } from '@/types/controls/text';
+import { PhoneProps } from '@/types/controls/phone';
 import { SelectProps } from '@/types/controls/select';
 import { TextAreaProps } from '@/types/controls/textArea';
 import { PostalCodeProps } from '@/types/controls/postalCode';
@@ -9,6 +10,7 @@ import content from '@/content/componentValidation.json';
 
 type ValidateRequest =
   | TextProps
+  | PhoneProps
   | SelectProps
   | TextAreaProps
   | PostalCodeProps;

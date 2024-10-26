@@ -8,18 +8,24 @@ export type ProviderProps = {
   children: ReactNode;
 
   /** Configuring this will override the default state of the validation messages. */
-  validationMessages?: ValidationMessages;
+  overridenMessages?: ValidationMessages;
 };
 
 // TODO : Make all these optional so each one can be overridden
 export type ValidationMessages = {
-  isRequired: string;
-  textNotNumeric: string;
-  invalidPostalCode: string;
+  isRequired?: string;
+  textNotNumeric?: string;
+  invalidPostalCode?: string;
 
   /** Adding `{{maxLength}}` to the content will update the text value to have the fields maximum length embedded */
-  textMaximumLength: string;
+  textMaximumLength?: string;
 
   /** Adding `{{minLength}}` to the content will update the text value to have the fields minimum length embedded */
-  textMinimumLength: string;
+  textMinimumLength?: string;
+} & PhoneNumberValidationMessages;
+
+export type PhoneNumberValidationMessages = {
+  contactNumberInvalid?: string;
+  contactNumberTooLong?: string;
+  contactNumberTooShort?: string;
 };

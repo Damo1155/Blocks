@@ -5,5 +5,9 @@
   "notNumeric": "This field should be numeric",
   "invalidPostalCode": "Invalid postcode provided",
   "exceededMaximumLength": "Maximum length should not exceed {{maxLength}} characters.",
-  "notExceededMinimumLength": "Minimum length should be at least {{minLength}} characters."
+  "notExceededMinimumLength": "Minimum length should be at least {{minLength}} characters.",
+
+  "contactNumberInvalid": "Contact number invalid.",
+  "contactNumberTooLong": "Contact number too long.",
+  "contactNumberTooShort": "Contact number too short."
 }

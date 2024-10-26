@@ -10,13 +10,15 @@ import { SwitchState } from '@/types/controls/switch';
 import { FormProvider } from '@/contexts/FormProvider';
 
 // Components
-import { Switch, Text } from '@/index';
+import { Phone, Switch, Text } from '@/index';
+import { PhoneState } from '@/types/controls/phone';
 
 const Page = () => {
   const [validate, setValidate] = useState<boolean>(false);
 
-  const [state, setState] = useState<SwitchState>({
-    value: 'Off',
+  const [state, setState] = useState<PhoneState>({
+    value: '',
+    isValid: false,
   });
 
   const processForm = (event: React.FormEvent<HTMLFormElement>) => {
@@ -28,13 +30,13 @@ const Page = () => {
   return (
     <FormProvider>
       <form onSubmit={processForm}>
-        <Switch
+        <Phone
           state={state}
           id="sdnvlkjsnd"
           name="ndkvjknsd"
           label="nsdlkvcsnd"
           onChange={setState}
-          selectionValues={{ on: 'On', off: 'Off' }}
+          countryCode="GB"
         />
       </form>
     </FormProvider>
