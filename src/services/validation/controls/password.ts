@@ -2,29 +2,33 @@ import { isEmpty } from 'validator';
 
 // Types
 import { ValidationMessages } from '@/types/contexts/forms';
-import { SelectValidationRules } from '@/types/controls/select';
+
+// Services
+import { PasswordValidationRules } from '@/types/controls/password';
 
 // Static Content
 import validationContent from '@/content/validation.json';
 
-type ValidateSelect = {
+type ValidateRequest = {
   value: string;
   validationMessages: ValidationMessages;
-  ruleSet: SelectValidationRules | undefined;
+  ruleSet: PasswordValidationRules | undefined;
 };
 
 export const validate = ({
   value,
   ruleSet,
   validationMessages,
-}: ValidateSelect): string | undefined => {
+}: ValidateRequest): string | undefined => {
   if (!ruleSet) {
     return undefined;
   }
 
+  const isValueEmpty = isEmpty(value);
+
   const { required } = ruleSet;
 
-  if (required && isEmpty(value)) {
+  if (required && isValueEmpty) {
     return validationMessages.isRequired ?? validationContent.isRequired;
   }
 

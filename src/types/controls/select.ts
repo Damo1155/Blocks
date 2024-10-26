@@ -28,7 +28,6 @@ export type SelectValidationRules = {
   required?: boolean;
 };
 
-// TODO : Need to allow this to support a maximum of 1 `optgroup`
 export type SelectOption = {
   text: string;
   value?: string;

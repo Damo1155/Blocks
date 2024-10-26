@@ -3,13 +3,13 @@
 import React, { useEffect, useState, FocusEvent } from 'react';
 
 // Types
-import { TextProps } from '@/types/controls/text';
+import { PasswordProps } from '@/types/controls/password';
 
 // Contexts
 import { useFormContext } from '@/contexts/FormProvider';
 
 // Services
-import { validate } from '@/services/validation/controls/text';
+import { validate } from '@/services/validation/controls/password';
 import { validateComponentConfiguration } from '@/services/validation/controls/shared';
 
 // Components
@@ -18,7 +18,7 @@ import { ValidationMessage } from '@/components/display/ValidationMessage';
 // Static Content
 import content from '@/content/validation.json';
 
-export const Password = (props: TextProps) => {
+export const Password = (props: PasswordProps) => {
   validateComponentConfiguration(props);
 
   const {
@@ -129,8 +129,6 @@ export const Password = (props: TextProps) => {
         value={state.value}
         onBlur={onInputBlur}
         placeholder={placeholder}
-        maxLength={validationRules?.maxLength}
-        minLength={validationRules?.minLength}
         aria-required={validationRules?.required}
         aria-label={ariaLabel ? ariaLabel : undefined}
         onChange={(event) => onInputChange(event.target.value)}

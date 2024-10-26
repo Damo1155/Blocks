@@ -11,7 +11,6 @@ export type ProviderProps = {
   overridenMessages?: ValidationMessages;
 };
 
-// TODO : Make all these optional so each one can be overridden
 export type ValidationMessages = {
   isRequired?: string;
   textNotNumeric?: string;
@@ -22,10 +21,16 @@ export type ValidationMessages = {
 
   /** Adding `{{minLength}}` to the content will update the text value to have the fields minimum length embedded */
   textMinimumLength?: string;
-} & PhoneNumberValidationMessages;
+} & PhoneNumberValidationMessages &
+  NumericValidationMessages;
 
 export type PhoneNumberValidationMessages = {
   contactNumberInvalid?: string;
   contactNumberTooLong?: string;
   contactNumberTooShort?: string;
+};
+
+export type NumericValidationMessages = {
+  numericMinNumber?: string;
+  numericMaxNumber?: string;
 };

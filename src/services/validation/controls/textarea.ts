@@ -7,6 +7,9 @@ import { TextAreaValidationRules } from '@/types/controls/textArea';
 // Services
 import { manipulateContent } from '@/services/utils/resource';
 
+// Static Content
+import validationContent from '@/content/validation.json';
+
 type ValidateRequest = {
   value: string;
   validationMessages: ValidationMessages;
@@ -27,19 +30,23 @@ export const validate = ({
   const { required, maxLength, minLength } = ruleSet;
 
   if (required && isValueEmpty) {
-    return validationMessages.isRequired;
+    return validationMessages.isRequired ?? validationContent.isRequired;
   }
 
   if (maxLength !== undefined && value.length > maxLength) {
     return manipulateContent({
-      content: validationMessages.textMaximumLength,
+      content:
+        validationMessages.textMaximumLength ??
+        validationContent.exceededMaximumLength,
       replacements: { '{{maxLength}}': maxLength.toString() },
     });
   }
 
   if (!isValueEmpty && minLength !== undefined && value.length < minLength) {
     return manipulateContent({
-      content: validationMessages.textMinimumLength,
+      content:
+        validationMessages.textMinimumLength ??
+        validationContent.notExceededMinimumLength,
       replacements: { '{{minLength}}': minLength.toString() },
     });
   }

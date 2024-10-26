@@ -4,11 +4,14 @@ import { isPostalCode, isEmpty, PostalCodeLocale } from 'validator';
 import { ValidationMessages } from '@/types/contexts/forms';
 import { PostalCodeValidationRules } from '@/types/controls/postalCode';
 
+// Static Content
+import validationContent from '@/content/validation.json';
+
 type ValidateRequest = {
   value: string;
   countryCode: PostalCodeLocale;
-  ruleSet?: PostalCodeValidationRules;
   validationMessages: ValidationMessages;
+  ruleSet: PostalCodeValidationRules | undefined;
 };
 
 export const validate = ({
@@ -24,11 +27,14 @@ export const validate = ({
   const { required } = ruleSet;
 
   if (required && isEmpty(value)) {
-    return validationMessages.isRequired;
+    return validationMessages.isRequired ?? validationContent.isRequired;
   }
 
   if (!isPostalCode(value, countryCode)) {
-    return validationMessages.invalidPostalCode;
+    return (
+      validationMessages.invalidPostalCode ??
+      validationContent.invalidPostalCode
+    );
   }
 
   return undefined;

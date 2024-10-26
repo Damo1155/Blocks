@@ -20,8 +20,8 @@ import componentValidationContent from '@/content/componentValidation.json';
 type Validate = {
   value: string;
   countryCode: CountryCode;
-  ruleSet?: PhoneValidationRules;
   validationMessages: ValidationMessages;
+  ruleSet: PhoneValidationRules | undefined;
 };
 
 export const validate = (request: Validate): string | undefined => {

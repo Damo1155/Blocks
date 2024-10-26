@@ -1,13 +1,16 @@
 {
   "optional": " (Optional)",
+  "invalidPostalCode": "Invalid postcode provided",
 
   "isRequired": "This field is required.",
-  "notNumeric": "This field should be numeric",
-  "invalidPostalCode": "Invalid postcode provided",
   "exceededMaximumLength": "Maximum length should not exceed {{maxLength}} characters.",
   "notExceededMinimumLength": "Minimum length should be at least {{minLength}} characters.",
 
   "contactNumberInvalid": "Contact number invalid.",
   "contactNumberTooLong": "Contact number too long.",
-  "contactNumberTooShort": "Contact number too short."
+  "contactNumberTooShort": "Contact number too short.",
+
+  "notNumeric": "This field should be numeric",
+  "numericMinNumber": "Please ensure the value is at least {{Minimum}}.",
+  "numericMaxNumber": "Please ensure the value is no greater than {{Maximum}}."
 }

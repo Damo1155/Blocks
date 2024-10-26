@@ -2,10 +2,13 @@ import { isEmpty, isNumeric as validateIsNumeric } from 'validator';
 
 // Types
 import { ValidationMessages } from '@/types/contexts/forms';
-import { TextProps, TextValidationRules } from '@/types/controls/text';
+import { TextValidationRules } from '@/types/controls/text';
 
 // Services
 import { manipulateContent } from '@/services/utils/resource';
+
+// Static Content
+import validationContent from '@/content/validation.json';
 
 type ValidateRequest = {
   value: string;
@@ -27,23 +30,27 @@ export const validate = ({
   const { required, maxLength, minLength, regex, isNumeric } = ruleSet;
 
   if (required && isValueEmpty) {
-    return validationMessages.isRequired;
+    return validationMessages.isRequired ?? validationContent.isRequired;
   }
 
   if (isNumeric && !isValueEmpty && !validateIsNumeric(value)) {
-    return validationMessages.textNotNumeric;
+    return validationMessages.textNotNumeric ?? validationContent.notNumeric;
   }
 
   if (maxLength && value.length > maxLength) {
     return manipulateContent({
-      content: validationMessages.textMaximumLength,
+      content:
+        validationMessages.textMaximumLength ??
+        validationContent.exceededMaximumLength,
       replacements: { '{{maxLength}}': maxLength.toString() },
     });
   }
 
   if (!isValueEmpty && minLength !== undefined && value.length < minLength) {
     return manipulateContent({
-      content: validationMessages.textMinimumLength,
+      content:
+        validationMessages.textMinimumLength ??
+        validationContent.notExceededMinimumLength,
       replacements: { '{{minLength}}': minLength.toString() },
     });
   }

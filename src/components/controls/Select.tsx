@@ -102,7 +102,6 @@ export const Select = (props: SelectProps) => {
     onChange({ value: state.value, isValid: !validationMessage });
   }, []);
 
-  // TODO   :   Render within an optgroup
   return (
     <div>
       {label && (
