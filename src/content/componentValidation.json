@@ -1,0 +1,10 @@
+{
+  "component-control-id-missing": "Ensure the `id` property has been provided",
+  "component-control-name-missing": "Ensure the `name` property has been provided",
+  "component-control-state-missing": "Ensure the `state` property has been provided",
+  "component-control-onChange-missing": "Ensure the `onChange` property has been provided",
+  "component-control-validate-missing": "Ensure the `validate` property has been provided",
+  "component-control-setValidate-missing": "Ensure the `setValidate` property has been provided",
+  "component-control-validationRules-missing": "Ensure the `validationRules` property has been provided",
+  "component-control-label-missing": "Ensure either tha `label` or `ariaLabel` has been provided. This is required for accessibility purposes."
+}

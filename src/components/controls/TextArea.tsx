@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useId, FocusEvent, useState, useEffect } from 'react';
+import React, { FocusEvent, useState, useEffect } from 'react';
 
 // Types
 import { TextAreaProps } from '@/types/controls/textArea';
@@ -9,7 +9,8 @@ import { TextAreaProps } from '@/types/controls/textArea';
 import { useFormContext } from '@/contexts/FormProvider';
 
 // Services
-import { validate } from '@/services/validation/textarea';
+import { validate } from '@/services/validation/controls/textarea';
+import { validateComponentConfiguration } from '@/services/validation/controls/shared';
 
 // Components
 import { ValidationMessage } from '@/components/display/ValidationMessage';
@@ -17,25 +18,27 @@ import { ValidationMessage } from '@/components/display/ValidationMessage';
 // Static Content
 import content from '@/content/validation.json';
 
-export const TextArea = ({
-  id,
-  rows,
-  name,
-  label,
-  state,
-  onBlur,
-  readOnly,
-  disabled,
-  onChange,
-  ariaLabel,
-  forceReset,
-  helpMessage,
-  placeholder,
-  validationRules,
-  validate: triggerValidation,
-}: TextAreaProps) => {
-  const uniqueId = useId();
-  const componentId = id ?? uniqueId;
+export const TextArea = (props: TextAreaProps) => {
+  validateComponentConfiguration(props);
+
+  const {
+    id,
+    rows,
+    name,
+    label,
+    state,
+    onBlur,
+    readOnly,
+    disabled,
+    onChange,
+    ariaLabel,
+    forceReset,
+    helpMessage,
+    placeholder,
+    validationRules,
+    validate: triggerValidation,
+  } = props;
+
   const { validationMessages } = useFormContext();
 
   const [remainingCharacters, setRemainingCharacters] = useState<number>(0);
@@ -120,7 +123,7 @@ export const TextArea = ({
   return (
     <div>
       {label && (
-        <label htmlFor={componentId}>
+        <label htmlFor={id}>
           <span>
             {label}
             {!validationRules?.required && <small>{content.optional}</small>}
@@ -134,9 +137,9 @@ export const TextArea = ({
       )}
 
       <textarea
+        id={id}
         rows={rows}
         name={name}
-        id={componentId}
         value={state.value}
         disabled={disabled}
         readOnly={readOnly}

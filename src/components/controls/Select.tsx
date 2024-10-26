@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useId, useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 
 // Types
 import { SelectProps } from '@/types/controls/select';
@@ -9,8 +9,9 @@ import { SelectProps } from '@/types/controls/select';
 import { useFormContext } from '@/contexts/FormProvider';
 
 // Services
-import { validate } from '@/services/validation/select';
+import { validate } from '@/services/validation/controls/select';
 import { toKebabCase } from '@/services/utils/extensions/string';
+import { validateComponentConfiguration } from '@/services/validation/controls/shared';
 
 // Components
 import { ValidationMessage } from '@/components/display/ValidationMessage';
@@ -18,22 +19,24 @@ import { ValidationMessage } from '@/components/display/ValidationMessage';
 // Static Content
 import content from '@/content/validation.json';
 
-export const Select = ({
-  id,
-  name,
-  label,
-  state,
-  options,
-  readOnly,
-  onChange,
-  ariaLabel,
-  forceReset,
-  helpMessage,
-  validationRules,
-  validate: triggerValidation,
-}: SelectProps) => {
-  const uniqueId = useId();
-  const componentId = id ?? uniqueId;
+export const Select = (props: SelectProps) => {
+  validateComponentConfiguration(props);
+
+  const {
+    id,
+    name,
+    label,
+    state,
+    options,
+    readOnly,
+    onChange,
+    ariaLabel,
+    forceReset,
+    helpMessage,
+    validationRules,
+    validate: triggerValidation,
+  } = props;
+
   const { validationMessages } = useFormContext();
 
   const [errorMessage, setErrorMessage] = useState<string | undefined>(
@@ -103,15 +106,15 @@ export const Select = ({
   return (
     <div>
       {label && (
-        <label htmlFor={componentId}>
+        <label htmlFor={id}>
           {label}
           {!validationRules?.required && <small>{content.optional}</small>}
         </label>
       )}
 
       <select
+        id={id}
         name={name}
-        id={componentId}
         value={state.value}
         aria-required={validationRules?.required}
         aria-label={ariaLabel ? ariaLabel : undefined}

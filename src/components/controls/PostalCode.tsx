@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useEffect, useState, FocusEvent, useId } from 'react';
+import React, { useEffect, useState, FocusEvent } from 'react';
 
 // Types
 import { PostalCodeProps } from '@/types/controls/postalCode';
@@ -9,7 +9,8 @@ import { PostalCodeProps } from '@/types/controls/postalCode';
 import { useFormContext } from '@/contexts/FormProvider';
 
 // Services
-import { validate } from '@/services/validation/postalCode';
+import { validate } from '@/services/validation/controls/postalCode';
+import { validateComponentConfiguration } from '@/services/validation/controls/shared';
 
 // Components
 import { ValidationMessage } from '@/components/display/ValidationMessage';
@@ -17,26 +18,28 @@ import { ValidationMessage } from '@/components/display/ValidationMessage';
 // Static Content
 import content from '@/content/validation.json';
 
-export const PostalCode = ({
-  id,
-  name,
-  label,
-  state,
-  onBlur,
-  onKeyUp,
-  onChange,
-  disabled,
-  readOnly,
-  ariaLabel,
-  forceReset,
-  placeholder,
-  countryCode,
-  helpMessage,
-  validationRules,
-  validate: triggerValidation,
-}: PostalCodeProps) => {
-  const uniqueId = useId();
-  const componentId = id ?? uniqueId;
+export const PostalCode = (props: PostalCodeProps) => {
+  validateComponentConfiguration(props);
+
+  const {
+    id,
+    name,
+    label,
+    state,
+    onBlur,
+    onKeyUp,
+    onChange,
+    disabled,
+    readOnly,
+    ariaLabel,
+    forceReset,
+    placeholder,
+    countryCode,
+    helpMessage,
+    validationRules,
+    validate: triggerValidation,
+  } = props;
+
   const { validationMessages } = useFormContext();
 
   const [errorMessage, setErrorMessage] = useState<string | undefined>(
@@ -115,16 +118,16 @@ export const PostalCode = ({
   return (
     <div>
       {label && (
-        <label htmlFor={componentId}>
+        <label htmlFor={id}>
           {label}
           {!validationRules?.required && <small>{content.optional}</small>}
         </label>
       )}
 
       <input
+        id={id}
         type="text"
         name={name}
-        id={componentId}
         onKeyUp={onKeyUp}
         disabled={disabled}
         readOnly={readOnly}

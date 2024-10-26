@@ -4,19 +4,19 @@ import { useState } from 'react';
 
 // Types
 import { TextState } from '@/types/controls/text';
+import { SwitchState } from '@/types/controls/switch';
 
 // Contexts
 import { FormProvider } from '@/contexts/FormProvider';
 
 // Components
-import { Text } from '@/index';
+import { Switch, Text } from '@/index';
 
 const Page = () => {
   const [validate, setValidate] = useState<boolean>(false);
 
-  const [state, setState] = useState<TextState>({
-    value: '',
-    isValid: false,
+  const [state, setState] = useState<SwitchState>({
+    value: 'Off',
   });
 
   const processForm = (event: React.FormEvent<HTMLFormElement>) => {
@@ -28,15 +28,13 @@ const Page = () => {
   return (
     <FormProvider>
       <form onSubmit={processForm}>
-        <Text
+        <Switch
           state={state}
           id="sdnvlkjsnd"
           name="ndkvjknsd"
           label="nsdlkvcsnd"
           onChange={setState}
-          validate={validate}
-          setValidate={setValidate}
-          validationRules={{ required: true }}
+          selectionValues={{ on: 'On', off: 'Off' }}
         />
       </form>
     </FormProvider>

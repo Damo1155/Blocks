@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useEffect, useState, FocusEvent, useId } from 'react';
+import React, { useEffect, useState, FocusEvent } from 'react';
 
 // Types
 import { TextProps } from '@/types/controls/text';
@@ -9,8 +9,8 @@ import { TextProps } from '@/types/controls/text';
 import { useFormContext } from '@/contexts/FormProvider';
 
 // Services
-import { validate } from '@/services/validation/text';
-import { validateComponentConfiguration } from '@/services/validation/controlsShared';
+import { validate } from '@/services/validation/controls/text';
+import { validateComponentConfiguration } from '@/services/validation/controls/shared';
 
 // Components
 import { ValidationMessage } from '@/components/display/ValidationMessage';
@@ -39,8 +39,6 @@ export const Text = (props: TextProps) => {
     validate: triggerValidation,
   } = props;
 
-  const uniqueId = useId();
-  const componentId = id ?? uniqueId;
   const { validationMessages } = useFormContext();
 
   const [errorMessage, setErrorMessage] = useState<string | undefined>(
@@ -115,16 +113,16 @@ export const Text = (props: TextProps) => {
   return (
     <div>
       {label && (
-        <label htmlFor={componentId}>
+        <label htmlFor={id}>
           {label}
           {!validationRules?.required && <small>{content.optional}</small>}
         </label>
       )}
 
       <input
+        id={id}
         type="text"
         name={name}
-        id={componentId}
         onKeyUp={onKeyUp}
         disabled={disabled}
         readOnly={readOnly}
