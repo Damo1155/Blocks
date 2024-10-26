@@ -14,6 +14,9 @@ import { validate } from '@/services/validation/textarea';
 // Components
 import { ValidationMessage } from '@/components/display/ValidationMessage';
 
+// Static Content
+import content from '@/content/validation.json';
+
 export const TextArea = ({
   id,
   rows,
@@ -24,7 +27,7 @@ export const TextArea = ({
   readOnly,
   disabled,
   onChange,
-  hideLabel,
+  ariaLabel,
   forceReset,
   helpMessage,
   placeholder,
@@ -116,7 +119,19 @@ export const TextArea = ({
 
   return (
     <div>
-      {!hideLabel && <label htmlFor={componentId}>{label}</label>}
+      {label && (
+        <label htmlFor={componentId}>
+          <span>
+            {label}
+            {!validationRules?.required && <small>{content.optional}</small>}
+          </span>
+          {validationRules?.maxLength && (
+            <span>
+              {remainingCharacters}/{validationRules?.maxLength}
+            </span>
+          )}
+        </label>
+      )}
 
       <textarea
         rows={rows}
@@ -127,6 +142,8 @@ export const TextArea = ({
         readOnly={readOnly}
         onBlur={onInputBlur}
         placeholder={placeholder}
+        aria-required={validationRules?.required}
+        aria-label={ariaLabel ? ariaLabel : undefined}
         onChange={(event) => onInputChange(event.target.value)}
       />
 

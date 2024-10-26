@@ -17,9 +17,9 @@ export type ValidationMessages = {
   textNotNumeric: string;
   invalidPostalCode: string;
 
-  /** Adding `{{MaxLength}}` to the content will update the text value to have the fields maximum length embedded */
+  /** Adding `{{maxLength}}` to the content will update the text value to have the fields maximum length embedded */
   textMaximumLength: string;
 
-  /** Adding `{{MinLength}}` to the content will update the text value to have the fields minimum length embedded */
+  /** Adding `{{minLength}}` to the content will update the text value to have the fields minimum length embedded */
   textMinimumLength: string;
 };

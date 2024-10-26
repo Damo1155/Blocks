@@ -1,16 +1,16 @@
 import { isEmpty } from 'validator';
 
 // Types
-import { TextAreaRules } from '@/types/controls/textArea';
 import { ValidationMessages } from '@/types/contexts/forms';
+import { TextAreaValidationRules } from '@/types/controls/textArea';
 
 // Services
 import { manipulateContent } from '@/services/utils/resource';
 
 type ValidateRequest = {
   value: string;
-  ruleSet?: TextAreaRules;
   validationMessages: ValidationMessages;
+  ruleSet: TextAreaValidationRules | undefined;
 };
 
 export const validate = ({
@@ -18,27 +18,29 @@ export const validate = ({
   ruleSet,
   validationMessages,
 }: ValidateRequest): string | undefined => {
+  if (!ruleSet) {
+    return undefined;
+  }
+
   const isValueEmpty = isEmpty(value);
 
-  if (ruleSet?.required && isValueEmpty) {
+  const { required, maxLength, minLength } = ruleSet;
+
+  if (required && isValueEmpty) {
     return validationMessages.isRequired;
   }
 
-  if (ruleSet?.maxLength !== undefined && value.length > ruleSet.maxLength) {
+  if (maxLength !== undefined && value.length > maxLength) {
     return manipulateContent({
       content: validationMessages.textMaximumLength,
-      replacements: { '{{MaxLength}}': ruleSet.maxLength.toString() },
+      replacements: { '{{maxLength}}': maxLength.toString() },
     });
   }
 
-  if (
-    !isValueEmpty &&
-    ruleSet?.minLength !== undefined &&
-    value.length < ruleSet.minLength
-  ) {
+  if (!isValueEmpty && minLength !== undefined && value.length < minLength) {
     return manipulateContent({
       content: validationMessages.textMinimumLength,
-      replacements: { '{{MinLength}}': ruleSet.minLength.toString() },
+      replacements: { '{{minLength}}': minLength.toString() },
     });
   }
 

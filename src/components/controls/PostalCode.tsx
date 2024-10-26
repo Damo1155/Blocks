@@ -14,6 +14,9 @@ import { validate } from '@/services/validation/postalCode';
 // Components
 import { ValidationMessage } from '@/components/display/ValidationMessage';
 
+// Static Content
+import content from '@/content/validation.json';
+
 export const PostalCode = ({
   id,
   name,
@@ -24,7 +27,7 @@ export const PostalCode = ({
   onChange,
   disabled,
   readOnly,
-  hideLabel,
+  ariaLabel,
   forceReset,
   placeholder,
   countryCode,
@@ -111,7 +114,12 @@ export const PostalCode = ({
 
   return (
     <div>
-      {!hideLabel && <label htmlFor={componentId}>{label}</label>}
+      {label && (
+        <label htmlFor={componentId}>
+          {label}
+          {!validationRules?.required && <small>{content.optional}</small>}
+        </label>
+      )}
 
       <input
         type="text"
@@ -124,7 +132,7 @@ export const PostalCode = ({
         onBlur={onInputBlur}
         placeholder={placeholder}
         aria-required={validationRules?.required}
-        aria-label={hideLabel ? label : undefined}
+        aria-label={ariaLabel ? ariaLabel : undefined}
         onChange={(event) => onInputChange(event.target.value)}
       />
 

@@ -1,37 +1,39 @@
+import { ReactNode } from 'react';
+
 // Types
 import {
-  BaseInputConfiguration,
-  BaseValidationConfiguration,
-  BaselineControlsConfiguration,
-  RestrictedControlConfiguration,
+  EventHandlers,
+  LabelConfiguration,
+  ControlStateManagement,
+  RestrictedConfiguration,
+  ValidationConfiguration,
+  BaseControlConfiguration,
 } from '@/types/controls/shared';
-import { BaseValidationRules } from '@/types/validation/rules';
+import { Either } from '../utils/either';
 
 export type TextAreaProps = {
   placeholder?: string;
-
-  state: TextAreaState;
-  onChange: (state: TextAreaState) => void;
+  helpMessage?: ReactNode;
 
   /** Provide a value to set the minimum number of rows against the `textarea`
    *
    * **Default**: No `rows` value will be set against the `textarea`
    */
   rows?: number;
-
-  /** `undefined` : No rules applied */
-  validationRules?: TextAreaRules;
-} & BaseInputConfiguration &
-  BaseValidationConfiguration &
-  RestrictedControlConfiguration &
-  BaselineControlsConfiguration;
+} & EventHandlers &
+  LabelConfiguration &
+  RestrictedConfiguration &
+  BaseControlConfiguration &
+  ControlStateManagement<TextAreaState> &
+  Either<ValidationConfiguration<TextAreaValidationRules>, object>;
 
 export type TextAreaState = {
   value: string;
   isValid: boolean;
 };
 
-export type TextAreaRules = {
+export type TextAreaValidationRules = {
   minLength?: number;
   maxLength?: number;
-} & BaseValidationRules;
+  required?: boolean;
+};

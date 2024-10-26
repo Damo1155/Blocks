@@ -2,11 +2,13 @@ import { ReactNode } from 'react';
 
 // Types
 import {
-  BaseValidationConfiguration,
-  BaselineControlsConfiguration,
-  RestrictedControlConfiguration,
+  LabelConfiguration,
+  ControlStateManagement,
+  RestrictedConfiguration,
+  ValidationConfiguration,
+  BaseControlConfiguration,
 } from '@/types/controls/shared';
-import { BaseValidationRules } from '@/types/validation/rules';
+import { Either } from '../utils/either';
 
 export type SelectState = {
   value: string;
@@ -14,19 +16,20 @@ export type SelectState = {
 };
 
 export type SelectProps = {
-  options: Option[];
-  state: SelectState;
-  hideLabel?: boolean;
+  options: SelectOption[];
   helpMessage?: ReactNode;
-  onChange: (state: SelectState) => void;
+} & LabelConfiguration &
+  RestrictedConfiguration &
+  BaseControlConfiguration &
+  ControlStateManagement<SelectState> &
+  Either<ValidationConfiguration<SelectValidationRules>, object>;
 
-  /** `undefined` : No rules applied */
-  validationRules?: BaseValidationRules;
-} & BaseValidationConfiguration &
-  RestrictedControlConfiguration &
-  BaselineControlsConfiguration;
+export type SelectValidationRules = {
+  required?: boolean;
+};
 
-export type Option = {
+// TODO : Need to allow this to support a maximum of 1 `optgroup`
+export type SelectOption = {
   text: string;
   value?: string;
   disabled?: boolean;

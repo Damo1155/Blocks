@@ -2,12 +2,12 @@ import { isPostalCode, isEmpty, PostalCodeLocale } from 'validator';
 
 // Types
 import { ValidationMessages } from '@/types/contexts/forms';
-import { BaseValidationRules } from '@/types/validation/rules';
+import { PostalCodeValidationRules } from '@/types/controls/postalCode';
 
 type ValidateRequest = {
   value: string;
-  ruleSet?: BaseValidationRules;
   countryCode: PostalCodeLocale;
+  ruleSet?: PostalCodeValidationRules;
   validationMessages: ValidationMessages;
 };
 
@@ -17,7 +17,13 @@ export const validate = ({
   countryCode,
   validationMessages,
 }: ValidateRequest): string | undefined => {
-  if (ruleSet?.required && isEmpty(value)) {
+  if (!ruleSet) {
+    return undefined;
+  }
+
+  const { required } = ruleSet;
+
+  if (required && isEmpty(value)) {
     return validationMessages.isRequired;
   }
 

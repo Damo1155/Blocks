@@ -1,24 +1,25 @@
+import { ReactNode } from 'react';
+
 // Types
 import {
-  BaseInputConfiguration,
-  BaseValidationConfiguration,
-  BaselineControlsConfiguration,
-  RestrictedControlConfiguration,
-} from '@/types/controls/shared';
-import { BaseValidationRules, RegexConfig } from '@/types/validation/rules';
+  EventHandlers,
+  LabelConfiguration,
+  ControlStateManagement,
+  RestrictedConfiguration,
+  ValidationConfiguration,
+  BaseControlConfiguration,
+} from './shared';
+import { Either } from '../utils/either';
 
 export type TextProps = {
   placeholder?: string;
-
-  state: TextState;
-  onChange: (state: TextState) => void;
-
-  /** `undefined` : No rules applied */
-  validationRules?: TextValidationRules;
-} & BaseInputConfiguration &
-  BaseValidationConfiguration &
-  RestrictedControlConfiguration &
-  BaselineControlsConfiguration;
+  helpMessage?: ReactNode;
+} & EventHandlers &
+  LabelConfiguration &
+  RestrictedConfiguration &
+  BaseControlConfiguration &
+  ControlStateManagement<TextState> &
+  Either<ValidationConfiguration<TextValidationRules>, object>;
 
 export type TextState = {
   value: string;
@@ -26,11 +27,18 @@ export type TextState = {
 };
 
 export type TextValidationRules = {
-  /** `true`: Ensures the value contained within the `state` is numeric */
-  isNumeric?: boolean;
-
   minLength?: number;
   maxLength?: number;
+  required?: boolean;
+  regex?: TextRegexConfiguration;
 
-  regex?: RegexConfig;
-} & BaseValidationRules;
+  /** `true`: Ensures the value contained within the `state` is numeric */
+  isNumeric?: boolean;
+};
+
+export type TextRegexConfiguration = {
+  pattern: RegExp;
+
+  /** On error the message attached to this property will be rendered. */
+  validationMessage: string;
+};

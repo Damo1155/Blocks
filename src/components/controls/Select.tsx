@@ -15,6 +15,9 @@ import { toKebabCase } from '@/services/utils/extensions/string';
 // Components
 import { ValidationMessage } from '@/components/display/ValidationMessage';
 
+// Static Content
+import content from '@/content/validation.json';
+
 export const Select = ({
   id,
   name,
@@ -23,6 +26,7 @@ export const Select = ({
   options,
   readOnly,
   onChange,
+  ariaLabel,
   forceReset,
   helpMessage,
   validationRules,
@@ -98,13 +102,19 @@ export const Select = ({
   // TODO   :   Render within an optgroup
   return (
     <div>
-      <label htmlFor={componentId}>{label}</label>
+      {label && (
+        <label htmlFor={componentId}>
+          {label}
+          {!validationRules?.required && <small>{content.optional}</small>}
+        </label>
+      )}
 
       <select
         name={name}
         id={componentId}
         value={state.value}
-        aria-required={validationRules?.required ? true : false}
+        aria-required={validationRules?.required}
+        aria-label={ariaLabel ? ariaLabel : undefined}
         onChange={(event) => onSelectChange(event.target.value)}
       >
         {options.map(({ value, disabled, text }) => (

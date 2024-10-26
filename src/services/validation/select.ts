@@ -2,11 +2,11 @@ import { isEmpty } from 'validator';
 
 // Types
 import { ValidationMessages } from '@/types/contexts/forms';
-import { BaseValidationRules } from '@/types/validation/rules';
+import { SelectValidationRules } from '@/types/controls/select';
 
 type ValidateSelect = {
   value: string;
-  ruleSet?: BaseValidationRules;
+  ruleSet?: SelectValidationRules;
   validationMessages: ValidationMessages;
 };
 
@@ -15,7 +15,13 @@ export const validate = ({
   ruleSet,
   validationMessages,
 }: ValidateSelect): string | undefined => {
-  if (ruleSet?.required && isEmpty(value)) {
+  if (!ruleSet) {
+    return undefined;
+  }
+
+  const { required } = ruleSet;
+
+  if (required && isEmpty(value)) {
     return validationMessages.isRequired;
   }
 

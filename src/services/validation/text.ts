@@ -1,16 +1,16 @@
-import { isEmpty, isNumeric } from 'validator';
+import { isEmpty, isNumeric as validateIsNumeric } from 'validator';
 
 // Types
 import { ValidationMessages } from '@/types/contexts/forms';
-import { TextValidationRules } from '@/types/controls/text';
+import { TextProps, TextValidationRules } from '@/types/controls/text';
 
 // Services
 import { manipulateContent } from '@/services/utils/resource';
 
 type ValidateRequest = {
   value: string;
-  ruleSet?: TextValidationRules;
   validationMessages: ValidationMessages;
+  ruleSet: TextValidationRules | undefined;
 };
 
 export const validate = ({
@@ -18,36 +18,38 @@ export const validate = ({
   ruleSet,
   validationMessages,
 }: ValidateRequest): string | undefined => {
+  if (!ruleSet) {
+    return undefined;
+  }
+
   const isValueEmpty = isEmpty(value);
 
-  if (ruleSet?.required && isValueEmpty) {
+  const { required, maxLength, minLength, regex, isNumeric } = ruleSet;
+
+  if (required && isValueEmpty) {
     return validationMessages.isRequired;
   }
 
-  if (ruleSet?.isNumeric && !isValueEmpty && !isNumeric(value)) {
+  if (isNumeric && !isValueEmpty && !validateIsNumeric(value)) {
     return validationMessages.textNotNumeric;
   }
 
-  if (ruleSet?.maxLength && value.length > ruleSet.maxLength) {
+  if (maxLength && value.length > maxLength) {
     return manipulateContent({
       content: validationMessages.textMaximumLength,
-      replacements: { '{{MaxLength}}': ruleSet.maxLength.toString() },
+      replacements: { '{{maxLength}}': maxLength.toString() },
     });
   }
 
-  if (
-    !isValueEmpty &&
-    ruleSet?.minLength !== undefined &&
-    value.length < ruleSet.minLength
-  ) {
+  if (!isValueEmpty && minLength !== undefined && value.length < minLength) {
     return manipulateContent({
       content: validationMessages.textMinimumLength,
-      replacements: { '{{MinLength}}': ruleSet.minLength.toString() },
+      replacements: { '{{minLength}}': minLength.toString() },
     });
   }
 
-  if (ruleSet?.regex && !isEmpty(value) && !ruleSet.regex.pattern.test(value)) {
-    return ruleSet.regex.validationMessage;
+  if (regex && !isEmpty(value) && !regex.pattern.test(value)) {
+    return regex.validationMessage;
   }
 
   return undefined;

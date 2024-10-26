@@ -1,13 +1,16 @@
+import { ReactNode } from 'react';
 import { PostalCodeLocale } from 'validator';
 
 // Types
 import {
-  BaseInputConfiguration,
-  BaseValidationConfiguration,
-  BaselineControlsConfiguration,
-  RestrictedControlConfiguration,
+  EventHandlers,
+  LabelConfiguration,
+  ControlStateManagement,
+  RestrictedConfiguration,
+  ValidationConfiguration,
+  BaseControlConfiguration,
 } from '@/types/controls/shared';
-import { BaseValidationRules } from '@/types/validation/rules';
+import { Either } from '../utils/either';
 
 export type PostalCodeState = {
   value: string;
@@ -16,15 +19,15 @@ export type PostalCodeState = {
 
 export type PostalCodeProps = {
   placeholder?: string;
+  helpMessage?: ReactNode;
   countryCode: PostalCodeLocale;
-  onChange: (state: PostalCodeState) => void;
+} & EventHandlers &
+  LabelConfiguration &
+  RestrictedConfiguration &
+  BaseControlConfiguration &
+  ControlStateManagement<PostalCodeState> &
+  Either<ValidationConfiguration<PostalCodeValidationRules>, object>;
 
-  /** `undefined` : No rules applied */
-  validationRules?: BaseValidationRules;
-
-  /** Tracks the state of the input and whether the field is valid  */
-  state: PostalCodeState;
-} & BaseInputConfiguration &
-  BaseValidationConfiguration &
-  RestrictedControlConfiguration &
-  BaselineControlsConfiguration;
+export type PostalCodeValidationRules = {
+  required?: boolean;
+};

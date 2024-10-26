@@ -10,27 +10,35 @@ import { useFormContext } from '@/contexts/FormProvider';
 
 // Services
 import { validate } from '@/services/validation/text';
+import { validateComponentConfiguration } from '@/services/validation/controlsShared';
 
 // Components
 import { ValidationMessage } from '@/components/display/ValidationMessage';
 
-export const Text = ({
-  id,
-  name,
-  label,
-  state,
-  onBlur,
-  onKeyUp,
-  onChange,
-  disabled,
-  readOnly,
-  hideLabel,
-  forceReset,
-  helpMessage,
-  placeholder,
-  validationRules,
-  validate: triggerValidation,
-}: TextProps) => {
+// Static Content
+import content from '@/content/validation.json';
+
+export const Text = (props: TextProps) => {
+  validateComponentConfiguration(props);
+
+  const {
+    id,
+    name,
+    label,
+    state,
+    onBlur,
+    onKeyUp,
+    onChange,
+    disabled,
+    readOnly,
+    ariaLabel,
+    forceReset,
+    helpMessage,
+    placeholder,
+    validationRules,
+    validate: triggerValidation,
+  } = props;
+
   const uniqueId = useId();
   const componentId = id ?? uniqueId;
   const { validationMessages } = useFormContext();
@@ -106,7 +114,12 @@ export const Text = ({
 
   return (
     <div>
-      {!hideLabel && <label htmlFor={componentId}>{label}</label>}
+      {label && (
+        <label htmlFor={componentId}>
+          {label}
+          {!validationRules?.required && <small>{content.optional}</small>}
+        </label>
+      )}
 
       <input
         type="text"
@@ -121,7 +134,7 @@ export const Text = ({
         maxLength={validationRules?.maxLength}
         minLength={validationRules?.minLength}
         aria-required={validationRules?.required}
-        aria-label={hideLabel ? label : undefined}
+        aria-label={ariaLabel ? ariaLabel : undefined}
         onChange={(event) => onInputChange(event.target.value)}
       />
 
