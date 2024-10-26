@@ -3,6 +3,7 @@ import { TextProps } from '@/types/controls/text';
 import { PhoneProps } from '@/types/controls/phone';
 import { SelectProps } from '@/types/controls/select';
 import { TextAreaProps } from '@/types/controls/textArea';
+import { PasswordProps } from '@/types/controls/password';
 import { PostalCodeProps } from '@/types/controls/postalCode';
 
 // Static Content
@@ -13,6 +14,7 @@ type ValidateRequest =
   | PhoneProps
   | SelectProps
   | TextAreaProps
+  | PasswordProps
   | PostalCodeProps;
 
 // TODO :   Need to update all the control props to support `setValidate`
