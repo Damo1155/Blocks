@@ -3,7 +3,7 @@
 import React from 'react';
 
 // Services
-import { validateComponentConfiguration } from '@/services/validation/controls/switch';
+import { validateComponentConfiguration } from '@/services/validation/switch';
 
 // Types
 import { SwitchProps } from '../../types/controls/switch';

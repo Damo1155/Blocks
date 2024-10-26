@@ -9,8 +9,8 @@ import { TextAreaProps } from '@/types/controls/textArea';
 import { useFormContext } from '@/contexts/FormProvider';
 
 // Services
-import { validate } from '@/services/validation/controls/textarea';
-import { validateComponentConfiguration } from '@/services/validation/controls/shared';
+import { validate } from '@/services/validation/textarea';
+import { validateComponentConfiguration } from '@/services/validation/shared';
 
 // Components
 import { ValidationMessage } from '@/components/display/ValidationMessage';

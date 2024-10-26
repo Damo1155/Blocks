@@ -22,8 +22,9 @@ export type ValidationMessages = {
 
   /** Adding `{{minLength}}` to the content will update the text value to have the fields minimum length embedded */
   textMinimumLength?: string;
-} & PhoneNumberValidationMessages &
-  NumericValidationMessages;
+} & NumericValidationMessages &
+  PhoneNumberValidationMessages &
+  CheckboxGroupValidationMessages;
 
 export type PhoneNumberValidationMessages = {
   contactNumberInvalid?: string;
@@ -34,4 +35,10 @@ export type PhoneNumberValidationMessages = {
 export type NumericValidationMessages = {
   numericMinNumber?: string;
   numericMaxNumber?: string;
+};
+
+export type CheckboxGroupValidationMessages = {
+  checkboxGroupMaxSelected: string;
+  checkboxGroupMinSelected: string;
+  checkboxGroupInvalidSelection: string;
 };

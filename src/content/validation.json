@@ -12,6 +12,10 @@
   "contactNumberTooShort": "Contact number too short.",
 
   "notNumeric": "This field should be numeric",
-  "numericMinNumber": "Please ensure the value is at least {{Minimum}}.",
-  "numericMaxNumber": "Please ensure the value is no greater than {{Maximum}}."
+  "numericMinNumber": "Please ensure the value is at least {{minimum}}.",
+  "numericMaxNumber": "Please ensure the value is no greater than {{maximum}}.",
+
+  "checkboxGroupInvalidSelection": "Invalid selection.",
+  "checkboxGroupMinSelected": "Select at least {{minimum}} option(s).",
+  "checkboxGroupMaxSelected": "Select no more than {{maximum}} option(s)."
 }

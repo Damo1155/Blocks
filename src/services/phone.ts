@@ -18,7 +18,7 @@ export const additionalDetails = ({
 
   try {
     return parsePhoneNumber(value, countryCode).number;
-  } catch (exception) {
+  } catch {
     return undefined;
   }
 };

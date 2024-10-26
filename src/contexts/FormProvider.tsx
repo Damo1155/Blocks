@@ -3,14 +3,11 @@ import { createContext, useContext, useEffect } from 'react';
 // Types
 import { Context, ProviderProps } from '@/types/contexts/forms';
 
-// Services
-import { configureDefaultMessages } from '@/services/validation/messages';
-
-// Static Content
-import { validationMessages } from '../configuration/validationMessages';
+// Configuration
+import { validationMessages } from '@/configuration/validationMessages';
 
 export const FormContext = createContext<Context>({
-  validationMessages: configureDefaultMessages,
+  validationMessages: validationMessages,
 });
 
 export const FormProvider = ({

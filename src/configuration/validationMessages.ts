@@ -14,4 +14,8 @@ export const validationMessages: ValidationMessages = {
   contactNumberInvalid: content.contactNumberInvalid,
   contactNumberTooLong: content.contactNumberTooLong,
   contactNumberTooShort: content.contactNumberTooShort,
+
+  checkboxGroupMaxSelected: content.checkboxGroupMaxSelected,
+  checkboxGroupMinSelected: content.checkboxGroupMinSelected,
+  checkboxGroupInvalidSelection: content.checkboxGroupInvalidSelection,
 };

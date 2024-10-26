@@ -9,9 +9,9 @@ import { SelectProps } from '@/types/controls/select';
 import { useFormContext } from '@/contexts/FormProvider';
 
 // Services
-import { validate } from '@/services/validation/controls/select';
+import { validate } from '@/services/validation/select';
 import { toKebabCase } from '@/services/utils/extensions/string';
-import { validateComponentConfiguration } from '@/services/validation/controls/shared';
+import { validateComponentConfiguration } from '@/services/validation/shared';
 
 // Components
 import { ValidationMessage } from '@/components/display/ValidationMessage';

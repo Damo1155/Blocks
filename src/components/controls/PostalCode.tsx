@@ -9,8 +9,8 @@ import { PostalCodeProps } from '@/types/controls/postalCode';
 import { useFormContext } from '@/contexts/FormProvider';
 
 // Services
-import { validate } from '@/services/validation/controls/postalCode';
-import { validateComponentConfiguration } from '@/services/validation/controls/shared';
+import { validate } from '@/services/validation/postalCode';
+import { validateComponentConfiguration } from '@/services/validation/shared';
 
 // Components
 import { ValidationMessage } from '@/components/display/ValidationMessage';

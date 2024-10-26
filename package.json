@@ -6,7 +6,8 @@
   "scripts": {
     "prepare": "husky",
     "build:local": "next dev",
-    "build:production": "echo production build step"
+    "build:production": "next build",
+    "build:analyser": "ENABLE_BUNDLE_ANALYSER=true next build && rm -rf ./.next/cache"
   },
   "author": "Damian Connolly",
   "license": "MIT",
