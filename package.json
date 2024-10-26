@@ -1,5 +1,5 @@
 {
-  "name": "@midgardsormr/elements",
+  "name": "@midgardsormr/blocks",
   "version": "1.0.0-alpha",
   "description": "React component library designed to work with SSR and Client Side environments.",
   "main": "src/index.ts",
