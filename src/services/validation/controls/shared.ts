@@ -5,6 +5,7 @@ import { SelectProps } from '@/types/controls/select';
 import { NumericProps } from '@/types/controls/numeric';
 import { TextAreaProps } from '@/types/controls/textArea';
 import { PasswordProps } from '@/types/controls/password';
+import { CheckboxProps } from '@/types/controls/checkbox';
 import { PostalCodeProps } from '@/types/controls/postalCode';
 
 // Static Content
@@ -17,7 +18,8 @@ type ValidateRequest =
   | NumericProps
   | TextAreaProps
   | PasswordProps
-  | PostalCodeProps;
+  | PostalCodeProps
+  | CheckboxProps;
 
 export const validateComponentConfiguration = ({
   id,
