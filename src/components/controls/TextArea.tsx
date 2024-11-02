@@ -15,9 +15,6 @@ import { validateComponentConfiguration } from '@/services/validation/shared';
 // Components
 import { ValidationMessage } from '@/components/display/ValidationMessage';
 
-// Static Content
-import content from '@/content/validation.json';
-
 export const TextArea = (props: TextAreaProps) => {
   validateComponentConfiguration(props);
 
@@ -126,7 +123,7 @@ export const TextArea = (props: TextAreaProps) => {
         <label htmlFor={id}>
           <span>
             {label}
-            {!validationRules?.required && <small>{content.optional}</small>}
+            {validationRules?.required && <small>*</small>}
           </span>
           {validationRules?.maxLength && (
             <span>

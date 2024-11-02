@@ -18,9 +18,6 @@ import { toKebabCase } from '@/services/utils/extensions/string';
 // Components
 import { ValidationMessage } from '@/components/display/ValidationMessage';
 
-// Static Content
-import content from '@/content/validation.json';
-
 export const RadioGroup = (props: RadioGroupProps) => {
   validateComponentConfiguration(props);
 
@@ -94,7 +91,7 @@ export const RadioGroup = (props: RadioGroupProps) => {
       <fieldset>
         <legend aria-label={ariaLabel}>
           {label}
-          {!validationRules?.required && <small>{content.optional}</small>}
+          {validationRules?.required && <small>*</small>}
         </legend>
 
         {helpMessage && <small>{helpMessage}</small>}

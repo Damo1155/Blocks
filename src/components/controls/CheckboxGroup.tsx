@@ -114,24 +114,22 @@ export const CheckboxGroup = (props: CheckboxGroupProps) => {
             selected.length > validationRules.minChecked;
 
           return (
-            <>
-              <div>
-                <label htmlFor={optionIdentifier}>
-                  <input
-                    type="checkbox"
-                    id={optionIdentifier}
-                    aria-required={isRequired}
-                    name={optionIdentifier}
-                    checked={option.checked}
-                    disabled={disabled || option.disabled}
-                    readOnly={readOnly || option.readOnly}
-                    onChange={() => onCheckboxChange(option.id)}
-                  />
+            <div>
+              <label htmlFor={optionIdentifier}>
+                <input
+                  type="checkbox"
+                  id={optionIdentifier}
+                  name={optionIdentifier}
+                  checked={option.checked}
+                  aria-required={isRequired}
+                  disabled={disabled || option.disabled}
+                  readOnly={readOnly || option.readOnly}
+                  onChange={() => onCheckboxChange(option.id)}
+                />
 
-                  {option.label}
-                </label>
-              </div>
-            </>
+                {option.label}
+              </label>
+            </div>
           );
         })}
 

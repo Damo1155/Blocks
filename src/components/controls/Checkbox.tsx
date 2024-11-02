@@ -15,9 +15,6 @@ import { validateComponentConfiguration } from '@/services/validation/shared';
 // Components
 import { ValidationMessage } from '@/components/display/ValidationMessage';
 
-// Static Content
-import content from '@/content/validation.json';
-
 export const Checkbox = (props: CheckboxProps) => {
   validateComponentConfiguration(props);
 
@@ -122,7 +119,7 @@ export const Checkbox = (props: CheckboxProps) => {
         {label && (
           <span>
             {label}
-            {!validationRules?.required && <small>{content.optional}</small>}
+            {validationRules?.required && <small>*</small>}
           </span>
         )}
       </label>

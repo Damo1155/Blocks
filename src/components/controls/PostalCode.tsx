@@ -15,9 +15,6 @@ import { validateComponentConfiguration } from '@/services/validation/shared';
 // Components
 import { ValidationMessage } from '@/components/display/ValidationMessage';
 
-// Static Content
-import content from '@/content/validation.json';
-
 export const PostalCode = (props: PostalCodeProps) => {
   validateComponentConfiguration(props);
 
@@ -120,7 +117,7 @@ export const PostalCode = (props: PostalCodeProps) => {
       {label && (
         <label htmlFor={id}>
           {label}
-          {!validationRules?.required && <small>{content.optional}</small>}
+          {validationRules?.required && <small>*</small>}
         </label>
       )}
 

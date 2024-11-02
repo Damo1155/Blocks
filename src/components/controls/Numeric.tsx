@@ -15,9 +15,6 @@ import { validateComponentConfiguration } from '@/services/validation/shared';
 // Components
 import { ValidationMessage } from '@/components/display/ValidationMessage';
 
-// Static Content
-import content from '@/content/validation.json';
-
 export const Numeric = (props: NumericProps) => {
   validateComponentConfiguration(props);
 
@@ -115,7 +112,7 @@ export const Numeric = (props: NumericProps) => {
       {label && (
         <label htmlFor={id}>
           {label}
-          {!validationRules?.required && <small>{content.optional}</small>}
+          {validationRules?.required && <small>*</small>}
         </label>
       )}
 

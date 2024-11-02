@@ -36,21 +36,20 @@ export const Switch = (props: SwitchProps) => {
   };
 
   return (
-    <>
-      <label htmlFor={id} aria-label={ariaLabel ? ariaLabel : undefined}>
-        {label}
+    // TODO : Will need the required asterisk to be embedded
+    <label htmlFor={id} aria-label={ariaLabel ? ariaLabel : undefined}>
+      {label}
 
-        <input
-          id={id}
-          name={name}
-          role="switch"
-          type="checkbox"
-          disabled={disabled}
-          readOnly={readOnly}
-          checked={state.value === selectionValues.on}
-          onChange={(event) => onSwitchChange(event.target.checked)}
-        />
-      </label>
-    </>
+      <input
+        id={id}
+        name={name}
+        role="switch"
+        type="checkbox"
+        disabled={disabled}
+        readOnly={readOnly}
+        checked={state.value === selectionValues.on}
+        onChange={(event) => onSwitchChange(event.target.checked)}
+      />
+    </label>
   );
 };

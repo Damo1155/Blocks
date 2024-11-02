@@ -16,9 +16,6 @@ import { validateComponentConfiguration } from '@/services/validation/shared';
 // Components
 import { ValidationMessage } from '@/components/display/ValidationMessage';
 
-// Static Content
-import content from '@/content/validation.json';
-
 export const Select = (props: SelectProps) => {
   validateComponentConfiguration(props);
 
@@ -107,7 +104,7 @@ export const Select = (props: SelectProps) => {
       {label && (
         <label htmlFor={id}>
           {label}
-          {!validationRules?.required && <small>{content.optional}</small>}
+          {validationRules?.required && <small>*</small>}
         </label>
       )}
 

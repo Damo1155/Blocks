@@ -115,7 +115,7 @@ export const Text = (props: TextProps) => {
       {label && (
         <label htmlFor={id}>
           {label}
-          {!validationRules?.required && <small>{content.optional}</small>}
+          {validationRules?.required && <small>*</small>}
         </label>
       )}
 

@@ -16,9 +16,6 @@ import { validateComponentConfiguration } from '@/services/validation/phone';
 // Components
 import { ValidationMessage } from '../display/ValidationMessage';
 
-// Static Content
-import content from '@/content/validation.json';
-
 export const Phone = (props: PhoneProps) => {
   validateComponentConfiguration(props);
 
@@ -139,7 +136,7 @@ export const Phone = (props: PhoneProps) => {
       {label && (
         <label htmlFor={id}>
           {label}
-          {!validationRules?.required && <small>{content.optional}</small>}
+          {validationRules?.required && <small>*</small>}
         </label>
       )}
 
