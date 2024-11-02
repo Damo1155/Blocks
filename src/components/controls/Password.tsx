@@ -9,8 +9,8 @@ import { PasswordProps } from '@/types/controls/password';
 import { useFormContext } from '@/contexts/FormProvider';
 
 // Services
-import { validate } from '@/services/validation/password';
-import { validateComponentConfiguration } from '@/services/validation/shared';
+import { validate } from '@/services/validation/controls/password';
+import { validateComponentConfiguration } from '@/services/validation/controls/shared';
 
 // Components
 import { ValidationMessage } from '@/components/display/ValidationMessage';

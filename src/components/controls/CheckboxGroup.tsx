@@ -15,7 +15,7 @@ import { useFormContext } from '../../contexts/FormProvider';
 import {
   validate,
   validateComponentConfiguration,
-} from '../../services/validation/checkboxGroup';
+} from '../../services/validation/controls/checkboxGroup';
 
 // Components
 import { ValidationMessage } from '../display/ValidationMessage';

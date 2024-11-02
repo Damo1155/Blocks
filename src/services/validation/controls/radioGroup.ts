@@ -4,7 +4,7 @@ import { isEmpty } from 'validator';
 import {
   RadioGroupProps,
   RadioGroupValidationRules,
-} from '../../types/controls/radioGroup';
+} from '../../../types/controls/radioGroup';
 import { ValidationMessages } from '@/types/contexts/forms';
 
 // Static Content

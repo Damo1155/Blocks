@@ -6,3 +6,8 @@ export type ClassNames = {
    * into the component. */
   className?: string;
 };
+
+export type ReactKey = {
+  /** Used to formulate the React `key` when handling lists */
+  key: string;
+};

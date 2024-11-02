@@ -3,7 +3,7 @@ import {
   SelectionState,
   CheckboxGroupProps,
   CheckboxGroupValidationRules,
-} from '../../types/controls/checkboxGroup';
+} from '../../../types/controls/checkboxGroup';
 import { ValidationMessages } from '@/types/contexts/forms';
 
 // Services

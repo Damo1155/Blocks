@@ -9,8 +9,8 @@ import { CheckboxProps } from '../../types/controls/checkbox';
 import { useFormContext } from '../../contexts/FormProvider';
 
 // Services
-import { validate } from '../../services/validation/checkbox';
-import { validateComponentConfiguration } from '@/services/validation/shared';
+import { validate } from '../../services/validation/controls/checkbox';
+import { validateComponentConfiguration } from '@/services/validation/controls/shared';
 
 // Components
 import { ValidationMessage } from '@/components/display/ValidationMessage';

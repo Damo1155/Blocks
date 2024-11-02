@@ -12,7 +12,7 @@ import { useFormContext } from '../../contexts/FormProvider';
 import {
   validate,
   validateComponentConfiguration,
-} from '../../services/validation/radioGroup';
+} from '../../services/validation/controls/radioGroup';
 import { toKebabCase } from '@/services/utils/extensions/string';
 
 // Components

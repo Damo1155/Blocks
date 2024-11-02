@@ -10,8 +10,8 @@ import { useFormContext } from '../../contexts/FormProvider';
 
 // Services
 import { additionalDetails } from '../../services/phone';
-import { validate } from '../../services/validation/phone';
-import { validateComponentConfiguration } from '@/services/validation/phone';
+import { validate } from '../../services/validation/controls/phone';
+import { validateComponentConfiguration } from '@/services/validation/controls/phone';
 
 // Components
 import { ValidationMessage } from '../display/ValidationMessage';

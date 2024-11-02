@@ -8,13 +8,13 @@ import { useState } from 'react';
 import { TextState } from '@/types/controls/text';
 import { PhoneState } from '@/types/controls/phone';
 import { SwitchState } from '@/types/controls/switch';
+import { CheckboxState } from '@/types/controls/checkbox';
 
 // Contexts
 import { FormProvider } from '@/contexts/FormProvider';
 
 // Components
-import { Checkbox, Phone, Switch, Text } from '@/index';
-import { CheckboxState } from '@/types/controls/checkbox';
+import { Alert, Checkbox, Phone, Switch, Text } from '@/index';
 
 const Page = () => {
   const [validate, setValidate] = useState<boolean>(false);
@@ -33,13 +33,9 @@ const Page = () => {
   return (
     <FormProvider>
       <form onSubmit={processForm}>
-        <Checkbox
-          state={state}
-          id="sdnvlkjsnd"
-          name="ndkvjknsd"
-          label="nsdlkvcsnd"
-          onChange={setState}
-        />
+        <Alert variant="informative" onDismiss={() => []} dismissText="Dismiss">
+          Message
+        </Alert>
       </form>
     </FormProvider>
   );

@@ -9,8 +9,8 @@ import { EmailProps } from '@/types/controls/email';
 import { useFormContext } from '@/contexts/FormProvider';
 
 // Services
-import { validate } from '@/services/validation/email';
-import { validateComponentConfiguration } from '@/services/validation/shared';
+import { validate } from '@/services/validation/controls/email';
+import { validateComponentConfiguration } from '@/services/validation/controls/shared';
 
 // Components
 import { ValidationMessage } from '@/components/display/ValidationMessage';

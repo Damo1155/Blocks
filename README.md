@@ -15,3 +15,4 @@ TODOs
   - Slider/Progress Bar (maybe?)
 - If possible, get a branching policy embedded
 - Simplify the Checkbox Group state object to follow a similar pattern to Radio Group state and options properties
+- Custom icons are stored in SVG files but handled as React Commponent so any documentation will need to state SVGR or similar may be needed

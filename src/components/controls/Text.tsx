@@ -9,14 +9,11 @@ import { TextProps } from '@/types/controls/text';
 import { useFormContext } from '@/contexts/FormProvider';
 
 // Services
-import { validate } from '@/services/validation/text';
-import { validateComponentConfiguration } from '@/services/validation/shared';
+import { validate } from '@/services/validation/controls/text';
+import { validateComponentConfiguration } from '@/services/validation/controls/shared';
 
 // Components
 import { ValidationMessage } from '@/components/display/ValidationMessage';
-
-// Static Content
-import content from '@/content/validation.json';
 
 export const Text = (props: TextProps) => {
   validateComponentConfiguration(props);

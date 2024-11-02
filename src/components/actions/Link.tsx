@@ -1,4 +1,5 @@
 import React from 'react';
+import classNames from 'classnames';
 
 // Types
 import { LinkProps } from '../../types/actions/links';
@@ -10,6 +11,7 @@ export const Link = ({
   target,
   onClick,
   children,
+  className,
 }: LinkProps) => {
   const formattedUrl = {
     default: to,
@@ -18,7 +20,15 @@ export const Link = ({
   }[type];
 
   return (
-    <a rel={rel} target={target} href={formattedUrl} onClick={onClick}>
+    <a
+      rel={rel}
+      target={target}
+      onClick={onClick}
+      href={formattedUrl}
+      className={classNames({
+        [`${className}`]: className,
+      })}
+    >
       {children}
     </a>
   );

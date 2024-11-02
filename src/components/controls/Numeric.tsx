@@ -9,8 +9,8 @@ import { NumericProps } from '@/types/controls/numeric';
 import { useFormContext } from '@/contexts/FormProvider';
 
 // Services
-import { validate } from '@/services/validation/numeric';
-import { validateComponentConfiguration } from '@/services/validation/shared';
+import { validate } from '@/services/validation/controls/numeric';
+import { validateComponentConfiguration } from '@/services/validation/controls/shared';
 
 // Components
 import { ValidationMessage } from '@/components/display/ValidationMessage';

@@ -19,10 +19,21 @@ import { DateOfBirth } from './components/controls/DateOfBirth';
 import { CheckboxGroup } from './components/controls/CheckboxGroup';
 
 // Display
+import { Alert } from './components/display/Alert';
 import { ValidationMessage } from './components/display/ValidationMessage';
 
 // Container
 import { Box } from './components/container/Box';
+import { Badge } from './components/display/Badge';
+import { Avatar } from './components/display/Avatar';
+
+// Typography
+import { List } from './components/typography/List';
+import { Heading } from './components/typography/Heading';
+import { Typography } from './components/typography/Typography';
+
+// Navigation
+import { Breadcrumbs } from './components/navigation/Breadcrumbs';
 
 export {
   // Actions
@@ -46,8 +57,19 @@ export {
   CheckboxGroup,
 
   // Display
+  Alert,
+  Badge,
+  Avatar,
   ValidationMessage,
 
   // Container
   Box,
+
+  // Typography
+  List,
+  Heading,
+  Typography,
+
+  // Navigation
+  Breadcrumbs,
 };
