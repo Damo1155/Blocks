@@ -1,23 +1,23 @@
 import { isEmpty } from 'validator';
-import { CountryCode, parsePhoneNumber } from 'libphonenumber-js';
+import { CountryCode, parsePhoneNumberWithError } from 'libphonenumber-js';
 
-type AdditionalDetailsRequest = {
+type PhonAdditionalDetailsRequest = {
   value: string;
   countryCode: CountryCode;
   validationMessage: string | undefined;
 };
 
-export const additionalDetails = ({
+export const phoneAdditionalDetails = ({
   value,
   countryCode,
   validationMessage,
-}: AdditionalDetailsRequest): string | undefined => {
+}: PhonAdditionalDetailsRequest): string | undefined => {
   if (validationMessage || isEmpty(value)) {
     return undefined;
   }
 
   try {
-    return parsePhoneNumber(value, countryCode).number;
+    return parsePhoneNumberWithError(value, countryCode).number;
   } catch {
     return undefined;
   }

@@ -9,7 +9,7 @@ import { PhoneProps } from '../../types/controls/phone';
 import { useFormContext } from '../../contexts/FormProvider';
 
 // Services
-import { additionalDetails } from '../../services/phone';
+import { phoneAdditionalDetails } from '../../services/phone';
 import { validate } from '../../services/validation/controls/phone';
 import { validateComponentConfiguration } from '../../services/validation/controls/phone';
 
@@ -55,7 +55,7 @@ export const Phone = (props: PhoneProps) => {
     onChange({
       value: value,
       isValid: !validationMessage,
-      e164: additionalDetails({
+      e164: phoneAdditionalDetails({
         value: value,
         countryCode: countryCode,
         validationMessage: validationMessage,
@@ -123,7 +123,7 @@ export const Phone = (props: PhoneProps) => {
     onChange({
       value: value,
       isValid: !validationMessage,
-      e164: additionalDetails({
+      e164: phoneAdditionalDetails({
         value: value,
         countryCode: countryCode,
         validationMessage: validationMessage,

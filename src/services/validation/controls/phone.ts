@@ -11,7 +11,7 @@ import {
   PhoneProps,
   PhoneValidationRules,
 } from '../../../types/controls/phone';
-import { ValidationMessages } from '../../../types/contexts/forms';
+import { FormValidationMessages } from '../../../types/contexts/forms';
 
 // Services
 import { validateComponentConfiguration as sharedValidation } from './shared';
@@ -23,7 +23,7 @@ import componentValidationContent from '../../../content/componentValidation.jso
 type Validate = {
   value: string;
   countryCode: CountryCode;
-  validationMessages?: ValidationMessages;
+  validationMessages?: FormValidationMessages;
   ruleSet: PhoneValidationRules | undefined;
 };
 

@@ -1,8 +1,8 @@
 import {
-  LabelConfiguration,
   ControlStateManagement,
-  RestrictedConfiguration,
-  BaseControlConfiguration,
+  ControlBaseConfiguration,
+  ControlLabelConfiguration,
+  ControlRestrictedConfiguration,
 } from './shared';
 
 type StoreTypes = boolean | string | number | undefined;
@@ -16,13 +16,13 @@ export type SwitchProps = {
 
   /** The value which will be stored in state depending on whether the
    * switch is `on` or `off` */
-  selectionValues: SelectionValues;
-} & LabelConfiguration &
-  RestrictedConfiguration &
-  BaseControlConfiguration &
+  selectionValues: SwitchSelectionValues;
+} & ControlLabelConfiguration &
+  ControlRestrictedConfiguration &
+  ControlBaseConfiguration &
   ControlStateManagement<SwitchState>;
 
-export type SelectionValues = {
+export type SwitchSelectionValues = {
   /** Value stored when switch is set to `true` */
   on: StoreTypes;
 

@@ -5,7 +5,7 @@ import {
   RadioGroupProps,
   RadioGroupValidationRules,
 } from '../../../types/controls/radioGroup';
-import { ValidationMessages } from '../../../types/contexts/forms';
+import { FormValidationMessages } from '../../../types/contexts/forms';
 
 // Static Content
 import validationContent from '../../../content/validation.json';
@@ -13,7 +13,7 @@ import componentValidationContent from '../../../content/componentValidation.jso
 
 type Validate = {
   value: string;
-  validationMessages: ValidationMessages;
+  validationMessages: FormValidationMessages;
   ruleSet: RadioGroupValidationRules | undefined;
 };
 

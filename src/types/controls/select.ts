@@ -2,11 +2,11 @@ import { ReactNode } from 'react';
 
 // Types
 import {
-  LabelConfiguration,
   ControlStateManagement,
-  RestrictedConfiguration,
-  ValidationConfiguration,
-  BaseControlConfiguration,
+  ControlBaseConfiguration,
+  ControlLabelConfiguration,
+  ControlRestrictedConfiguration,
+  ControlValidationConfiguration,
 } from '../controls/shared';
 import { Either } from '../utils/either';
 
@@ -18,11 +18,11 @@ export type SelectState = {
 export type SelectProps = {
   options: SelectOption[];
   helpMessage?: ReactNode;
-} & LabelConfiguration &
-  RestrictedConfiguration &
-  BaseControlConfiguration &
+} & ControlLabelConfiguration &
+  ControlRestrictedConfiguration &
+  ControlBaseConfiguration &
   ControlStateManagement<SelectState> &
-  Either<ValidationConfiguration<SelectValidationRules>, object>;
+  Either<ControlValidationConfiguration<SelectValidationRules>, object>;
 
 export type SelectValidationRules = {
   required?: boolean;

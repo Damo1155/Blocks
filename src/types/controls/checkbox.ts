@@ -1,10 +1,10 @@
 // Types
 import {
-  LabelConfiguration,
+  ControlLabelConfiguration,
   ControlStateManagement,
-  RestrictedConfiguration,
-  ValidationConfiguration,
-  BaseControlConfiguration,
+  ControlRestrictedConfiguration,
+  ControlValidationConfiguration,
+  ControlBaseConfiguration,
 } from './shared';
 import { Either } from '../utils/either';
 
@@ -13,11 +13,11 @@ export type CheckboxState = {
   isValid: boolean;
 };
 
-export type CheckboxProps = LabelConfiguration &
-  RestrictedConfiguration &
-  BaseControlConfiguration &
+export type CheckboxProps = ControlLabelConfiguration &
+  ControlRestrictedConfiguration &
+  ControlBaseConfiguration &
   ControlStateManagement<CheckboxState> &
-  Either<ValidationConfiguration<CheckboxValidationRules>, object>;
+  Either<ControlValidationConfiguration<CheckboxValidationRules>, object>;
 
 export type CheckboxValidationRules = {
   required?: boolean;

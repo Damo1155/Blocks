@@ -3,12 +3,12 @@ import { PostalCodeLocale } from 'validator';
 
 // Types
 import {
-  EventHandlers,
-  LabelConfiguration,
+  ControlEventHandlers,
   ControlStateManagement,
-  RestrictedConfiguration,
-  ValidationConfiguration,
-  BaseControlConfiguration,
+  ControlBaseConfiguration,
+  ControlLabelConfiguration,
+  ControlRestrictedConfiguration,
+  ControlValidationConfiguration,
 } from '../controls/shared';
 import { Either } from '../utils/either';
 
@@ -21,12 +21,12 @@ export type PostalCodeProps = {
   placeholder?: string;
   helpMessage?: ReactNode;
   countryCode: PostalCodeLocale;
-} & EventHandlers &
-  LabelConfiguration &
-  RestrictedConfiguration &
-  BaseControlConfiguration &
+} & ControlEventHandlers &
+  ControlLabelConfiguration &
+  ControlRestrictedConfiguration &
+  ControlBaseConfiguration &
   ControlStateManagement<PostalCodeState> &
-  Either<ValidationConfiguration<PostalCodeValidationRules>, object>;
+  Either<ControlValidationConfiguration<PostalCodeValidationRules>, object>;
 
 export type PostalCodeValidationRules = {
   required?: boolean;

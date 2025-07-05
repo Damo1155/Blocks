@@ -1,19 +1,22 @@
 import { createContext, useContext, useEffect } from 'react';
 
 // Types
-import { Context, ProviderProps } from '../types/contexts/forms';
+import {
+  FormProviderContext,
+  FormProviderProps,
+} from '../types/contexts/forms';
 
 // Configuration
 import { validationMessages } from '../configuration/validationMessages';
 
-export const FormContext = createContext<Context>({
+export const FormContext = createContext<FormProviderContext>({
   validationMessages: validationMessages,
 });
 
 export const FormProvider = ({
   children,
   overridenMessages,
-}: ProviderProps) => {
+}: FormProviderProps) => {
   useEffect(() => {
     if (!overridenMessages) {
       return;
@@ -40,4 +43,5 @@ export const FormProvider = ({
   );
 };
 
-export const useFormContext = () => useContext<Context>(FormContext);
+export const useFormContext = () =>
+  useContext<FormProviderContext>(FormContext);

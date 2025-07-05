@@ -2,24 +2,24 @@ import { ReactNode } from 'react';
 
 // Types
 import {
-  EventHandlers,
-  LabelConfiguration,
+  ControlEventHandlers,
   ControlStateManagement,
-  RestrictedConfiguration,
-  ValidationConfiguration,
-  BaseControlConfiguration,
+  ControlBaseConfiguration,
+  ControlLabelConfiguration,
+  ControlRestrictedConfiguration,
+  ControlValidationConfiguration,
 } from './shared';
 import { Either } from '../utils/either';
 
 export type TextProps = {
   placeholder?: string;
   helpMessage?: ReactNode;
-} & EventHandlers &
-  LabelConfiguration &
-  RestrictedConfiguration &
-  BaseControlConfiguration &
+} & ControlEventHandlers &
+  ControlLabelConfiguration &
+  ControlRestrictedConfiguration &
+  ControlBaseConfiguration &
   ControlStateManagement<TextState> &
-  Either<ValidationConfiguration<TextValidationRules>, object>;
+  Either<ControlValidationConfiguration<TextValidationRules>, object>;
 
 export type TextState = {
   value: string;

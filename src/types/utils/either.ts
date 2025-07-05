@@ -1,7 +1,7 @@
-type Only<T, U> = {
-  [P in keyof T]: T[P];
+type Only<Left, Right> = {
+  [Param in keyof Left]: Left[Param];
 } & {
-  [P in keyof U]?: never;
+  [Param in keyof Right]?: never;
 };
 
-export type Either<T, U> = Only<T, U> | Only<U, T>;
+export type Either<Left, Right> = Only<Left, Right> | Only<Right, Left>;

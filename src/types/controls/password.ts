@@ -2,24 +2,24 @@ import { ReactNode } from 'react';
 
 // Types
 import {
-  EventHandlers,
-  LabelConfiguration,
+  ControlEventHandlers,
   ControlStateManagement,
-  RestrictedConfiguration,
-  ValidationConfiguration,
-  BaseControlConfiguration,
+  ControlBaseConfiguration,
+  ControlLabelConfiguration,
+  ControlRestrictedConfiguration,
+  ControlValidationConfiguration,
 } from './shared';
 import { Either } from '../utils/either';
 
 export type PasswordProps = {
   placeholder?: string;
   helpMessage?: ReactNode;
-} & EventHandlers &
-  LabelConfiguration &
-  RestrictedConfiguration &
-  BaseControlConfiguration &
+} & ControlEventHandlers &
+  ControlBaseConfiguration &
+  ControlLabelConfiguration &
+  ControlRestrictedConfiguration &
   ControlStateManagement<PasswordState> &
-  Either<ValidationConfiguration<PasswordValidationRules>, object>;
+  Either<ControlValidationConfiguration<PasswordValidationRules>, object>;
 
 export type PasswordState = {
   value: string;

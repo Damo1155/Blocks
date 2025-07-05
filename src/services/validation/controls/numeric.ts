@@ -1,7 +1,7 @@
 import { isEmpty, isNumeric } from 'validator';
 
 // Types
-import { ValidationMessages } from '../../../types/contexts/forms';
+import { FormValidationMessages } from '../../../types/contexts/forms';
 import { NumericValidationRules } from '../../../types/controls/numeric';
 
 // Services
@@ -12,7 +12,7 @@ import content from '../../../content/validation.json';
 
 type Validate = {
   value: number;
-  validationMessages: ValidationMessages;
+  validationMessages: FormValidationMessages;
   ruleSet: NumericValidationRules | undefined;
 };
 

@@ -1,7 +1,7 @@
 import { isEmpty, isEmail } from 'validator';
 
 // Types
-import { ValidationMessages } from '../../../types/contexts/forms';
+import { FormValidationMessages } from '../../../types/contexts/forms';
 import { EmailValidationRules } from '../../../types/controls/email';
 
 // Static Content
@@ -9,7 +9,7 @@ import content from '../../../content/validation.json';
 
 type Validate = {
   value: string;
-  validationMessages: ValidationMessages;
+  validationMessages: FormValidationMessages;
   ruleSet: EmailValidationRules | undefined;
 };
 

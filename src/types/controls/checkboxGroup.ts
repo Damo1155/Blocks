@@ -2,29 +2,29 @@ import { ReactNode } from 'react';
 
 // Types
 import {
-  LabelConfiguration,
+  ControlLabelConfiguration,
   ControlStateManagement,
-  ValidationConfiguration,
-  RestrictedConfiguration,
-  BaseControlConfiguration,
+  ControlValidationConfiguration,
+  ControlRestrictedConfiguration,
+  ControlBaseConfiguration,
 } from './shared';
 import { Either } from '../utils/either';
 
 export type CheckboxGroupProps = {
   placeholder?: string;
   helpMessage?: ReactNode;
-} & LabelConfiguration &
-  RestrictedConfiguration &
-  BaseControlConfiguration &
+} & ControlLabelConfiguration &
+  ControlRestrictedConfiguration &
+  ControlBaseConfiguration &
   ControlStateManagement<CheckboxGroupState> &
-  Either<ValidationConfiguration<CheckboxGroupValidationRules>, object>;
+  Either<ControlValidationConfiguration<CheckboxGroupValidationRules>, object>;
 
 export type CheckboxGroupState = {
   isValid: boolean;
-  selection: SelectionState[];
+  selection: CheckboxGroupSelectionState[];
 };
 
-export type SelectionState = {
+export type CheckboxGroupSelectionState = {
   id: string;
   label: string;
   checked: boolean;

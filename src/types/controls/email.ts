@@ -2,12 +2,12 @@ import { ReactNode } from 'react';
 
 // Types
 import {
-  EventHandlers,
-  LabelConfiguration,
+  ControlEventHandlers,
   ControlStateManagement,
-  ValidationConfiguration,
-  RestrictedConfiguration,
-  BaseControlConfiguration,
+  ControlBaseConfiguration,
+  ControlLabelConfiguration,
+  ControlValidationConfiguration,
+  ControlRestrictedConfiguration,
 } from './shared';
 import { Either } from '../utils/either';
 
@@ -19,12 +19,12 @@ export type EmailState = {
 export type EmailProps = {
   placeholder?: string;
   helpMessage?: ReactNode;
-} & EventHandlers &
-  LabelConfiguration &
-  RestrictedConfiguration &
-  BaseControlConfiguration &
+} & ControlEventHandlers &
+  ControlLabelConfiguration &
+  ControlRestrictedConfiguration &
+  ControlBaseConfiguration &
   ControlStateManagement<EmailState> &
-  Either<ValidationConfiguration<EmailValidationRules>, object>;
+  Either<ControlValidationConfiguration<EmailValidationRules>, object>;
 
 export type EmailValidationRules = {
   required?: boolean;

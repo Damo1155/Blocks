@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 
 // Types
 import {
-  SelectionState,
+  CheckboxGroupSelectionState,
   CheckboxGroupProps,
 } from '../../types/controls/checkboxGroup';
 
@@ -47,13 +47,15 @@ export const CheckboxGroup = (props: CheckboxGroupProps) => {
       return;
     }
 
-    const selection = state.selection.map((item): SelectionState => {
-      if (item.id === id) {
-        item.checked = !item.checked;
-      }
+    const selection = state.selection.map(
+      (item): CheckboxGroupSelectionState => {
+        if (item.id === id) {
+          item.checked = !item.checked;
+        }
 
-      return item;
-    });
+        return item;
+      },
+    );
 
     const validationMessage = validate({
       values: selection,

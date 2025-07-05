@@ -1,10 +1,10 @@
 import { ReactNode } from 'react';
 
 export type TabsProps = {
-  tabs: Tab[];
+  tabs: TabOption[];
 };
 
-export type Tab = {
+export type TabOption = {
   label: string;
   panel: ReactNode;
   disabled?: boolean;

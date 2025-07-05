@@ -3,12 +3,12 @@ import { CountryCode } from 'libphonenumber-js';
 
 // Types
 import {
-  EventHandlers,
-  LabelConfiguration,
+  ControlEventHandlers,
   ControlStateManagement,
-  ValidationConfiguration,
-  RestrictedConfiguration,
-  BaseControlConfiguration,
+  ControlBaseConfiguration,
+  ControlLabelConfiguration,
+  ControlValidationConfiguration,
+  ControlRestrictedConfiguration,
 } from './shared';
 import { Either } from '../utils/either';
 
@@ -24,12 +24,12 @@ export type PhoneProps = {
   placeholder?: string;
   helpMessage?: ReactNode;
   countryCode: CountryCode;
-} & EventHandlers &
-  LabelConfiguration &
-  RestrictedConfiguration &
-  BaseControlConfiguration &
+} & ControlEventHandlers &
+  ControlLabelConfiguration &
+  ControlRestrictedConfiguration &
+  ControlBaseConfiguration &
   ControlStateManagement<PhoneState> &
-  Either<ValidationConfiguration<PhoneValidationRules>, object>;
+  Either<ControlValidationConfiguration<PhoneValidationRules>, object>;
 
 export type PhoneValidationRules = {
   required?: boolean;

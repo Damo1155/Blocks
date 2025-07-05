@@ -1,7 +1,7 @@
 import { isPostalCode, isEmpty, PostalCodeLocale } from 'validator';
 
 // Types
-import { ValidationMessages } from '../../../types/contexts/forms';
+import { FormValidationMessages } from '../../../types/contexts/forms';
 import { PostalCodeValidationRules } from '../../../types/controls/postalCode';
 
 // Static Content
@@ -10,7 +10,7 @@ import validationContent from '../../../content/validation.json';
 type ValidateRequest = {
   value: string;
   countryCode: PostalCodeLocale;
-  validationMessages: ValidationMessages;
+  validationMessages: FormValidationMessages;
   ruleSet: PostalCodeValidationRules | undefined;
 };
 

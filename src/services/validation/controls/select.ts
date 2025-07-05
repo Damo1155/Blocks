@@ -1,7 +1,7 @@
 import { isEmpty } from 'validator';
 
 // Types
-import { ValidationMessages } from '../../../types/contexts/forms';
+import { FormValidationMessages } from '../../../types/contexts/forms';
 import { SelectValidationRules } from '../../../types/controls/select';
 
 // Static Content
@@ -9,7 +9,7 @@ import validationContent from '../../../content/validation.json';
 
 type ValidateSelect = {
   value: string;
-  validationMessages: ValidationMessages;
+  validationMessages: FormValidationMessages;
   ruleSet: SelectValidationRules | undefined;
 };
 

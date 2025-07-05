@@ -17,7 +17,7 @@ type Icon = {
   icon: ReactNode;
 
   /** Will determine where the icon is positioned in relation to the rendered text */
-  iconPosition: Position;
+  iconPosition: BadgePosition;
 };
 
-export type Position = 'left' | 'right';
+export type BadgePosition = 'left' | 'right';

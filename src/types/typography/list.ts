@@ -4,7 +4,7 @@ import { ReactNode } from 'react';
 import { Either } from '../utils/either';
 import { ClassNames, ReactKey } from '../utils/global';
 
-export type OrderedListStyle =
+export type ListOrderedStyle =
   | 'ol-default'
   | 'list-style-type-none'
   | 'list-style-type-decimal'
@@ -13,7 +13,7 @@ export type OrderedListStyle =
   | 'list-style-type-lower-roman'
   | 'list-style-type-upper-roman';
 
-export type UnorderedListStyle =
+export type ListUnorderedStyle =
   | 'ul-default'
   | 'list-style-type-none'
   | 'list-style-type-disc'
@@ -27,12 +27,12 @@ export type ListProps = {
 
 export type OrderedList = {
   /** `ol-default` will render a standard `ol` with no styling overrides */
-  ol: OrderedListStyle;
+  ol: ListOrderedStyle;
 };
 
 export type UnorderedList = {
   /** `ul-default` will render a standard `ul` with no styling overrides */
-  ul: UnorderedListStyle;
+  ul: ListUnorderedStyle;
 };
 
 export type ListOption = {

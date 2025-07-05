@@ -2,12 +2,12 @@ import { ReactNode } from 'react';
 
 // Types
 import {
-  EventHandlers,
-  LabelConfiguration,
+  ControlEventHandlers,
   ControlStateManagement,
-  RestrictedConfiguration,
-  ValidationConfiguration,
-  BaseControlConfiguration,
+  ControlBaseConfiguration,
+  ControlLabelConfiguration,
+  ControlRestrictedConfiguration,
+  ControlValidationConfiguration,
 } from '../controls/shared';
 import { Either } from '../utils/either';
 
@@ -20,12 +20,12 @@ export type TextAreaProps = {
    * **Default**: No `rows` value will be set against the `textarea`
    */
   rows?: number;
-} & EventHandlers &
-  LabelConfiguration &
-  RestrictedConfiguration &
-  BaseControlConfiguration &
+} & ControlEventHandlers &
+  ControlLabelConfiguration &
+  ControlRestrictedConfiguration &
+  ControlBaseConfiguration &
   ControlStateManagement<TextAreaState> &
-  Either<ValidationConfiguration<TextAreaValidationRules>, object>;
+  Either<ControlValidationConfiguration<TextAreaValidationRules>, object>;
 
 export type TextAreaState = {
   value: string;

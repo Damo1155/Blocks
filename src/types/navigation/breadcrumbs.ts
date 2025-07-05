@@ -14,13 +14,13 @@ export type BreadcrumbOption = {
   children: string;
   disabled?: boolean;
 } & ReactKey &
-  Either<DefaultStructure, OnClick>;
+  Either<BreadcrumbDefaultStructure, BreadcrumbOnClick>;
 
-export type DefaultStructure = {
+export type BreadcrumbDefaultStructure = {
   /** Set this to an empty string or `#` if the `type` is `no-link` */
   to: string;
 };
 
-export type OnClick = {
+export type BreadcrumbOnClick = {
   onClick: () => Promise<void> | void;
 };

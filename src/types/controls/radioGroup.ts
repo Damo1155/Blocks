@@ -2,11 +2,11 @@ import { ReactNode } from 'react';
 
 // Types
 import {
-  LabelConfiguration,
   ControlStateManagement,
-  ValidationConfiguration,
-  RestrictedConfiguration,
-  BaseControlConfiguration,
+  ControlBaseConfiguration,
+  ControlLabelConfiguration,
+  ControlValidationConfiguration,
+  ControlRestrictedConfiguration,
 } from './shared';
 import { Either } from '../utils/either';
 
@@ -19,11 +19,11 @@ export type RadioGroupProps = {
   options: Radio[];
   placeholder?: string;
   helpMessage?: ReactNode;
-} & LabelConfiguration &
-  RestrictedConfiguration &
-  BaseControlConfiguration &
+} & ControlLabelConfiguration &
+  ControlRestrictedConfiguration &
+  ControlBaseConfiguration &
   ControlStateManagement<RadioGroupState> &
-  Either<ValidationConfiguration<RadioGroupValidationRules>, object>;
+  Either<ControlValidationConfiguration<RadioGroupValidationRules>, object>;
 
 export type RadioGroupValidationRules = {
   required?: boolean;
@@ -32,4 +32,4 @@ export type RadioGroupValidationRules = {
 export type Radio = {
   label: string;
   value: string;
-} & RestrictedConfiguration;
+} & ControlRestrictedConfiguration;

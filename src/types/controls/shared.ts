@@ -1,11 +1,11 @@
-import { KeyboardEvent, FocusEvent } from 'react';
+import { KeyboardEvent, FocusEvent, MouseEvent } from 'react';
 
 // Types
 import { Either } from '../utils/either';
 
-type SupportedInputTypes = HTMLInputElement | HTMLTextAreaElement;
+type ControlSupportedInputTypes = HTMLInputElement | HTMLTextAreaElement;
 
-export type ValidationConfiguration<TValidationRules> = {
+export type ControlValidationConfiguration<TValidationRules> = {
   /** Forcibly triggers any validation messages to appear.
    *
    * **Note**: Setting this value back to false **WILL NOT** remove the validation message from the component.
@@ -28,22 +28,26 @@ export type ValidationConfiguration<TValidationRules> = {
   forceReset?: boolean;
 };
 
-export type RestrictedConfiguration = {
+export type ControlRestrictedConfiguration = {
   disabled?: boolean;
   readOnly?: boolean;
 };
 
-export type EventHandlers = {
-  onBlur?: (event: FocusEvent<SupportedInputTypes>) => void;
-  onKeyUp?: (event: KeyboardEvent<SupportedInputTypes>) => void;
+export type ControlEventHandlers = {
+  onBlur?: (event: FocusEvent<ControlSupportedInputTypes>) => void;
+  onClick?: (event: MouseEvent<ControlSupportedInputTypes>) => void;
+  onKeyUp?: (event: KeyboardEvent<ControlSupportedInputTypes>) => void;
 };
 
-type StandardLabel = { label: string };
-type AriaLabel = { ariaLabel: string };
+type ControlStandardLabel = { label: string };
+type ControlAriaLabel = { ariaLabel: string };
 
-export type LabelConfiguration = Either<StandardLabel, AriaLabel>;
+export type ControlLabelConfiguration = Either<
+  ControlStandardLabel,
+  ControlAriaLabel
+>;
 
-export type BaseControlConfiguration = {
+export type ControlBaseConfiguration = {
   id: string;
 };
 

@@ -2,12 +2,12 @@ import { ReactNode } from 'react';
 
 // Types
 import {
-  EventHandlers,
-  LabelConfiguration,
+  ControlEventHandlers,
   ControlStateManagement,
-  ValidationConfiguration,
-  RestrictedConfiguration,
-  BaseControlConfiguration,
+  ControlBaseConfiguration,
+  ControlLabelConfiguration,
+  ControlValidationConfiguration,
+  ControlRestrictedConfiguration,
 } from './shared';
 import { Either } from '../utils/either';
 
@@ -19,12 +19,12 @@ export type NumericState = {
 export type NumericProps = {
   placeholder?: string;
   helpMessage?: ReactNode;
-} & EventHandlers &
-  LabelConfiguration &
-  RestrictedConfiguration &
-  BaseControlConfiguration &
+} & ControlEventHandlers &
+  ControlBaseConfiguration &
+  ControlLabelConfiguration &
+  ControlRestrictedConfiguration &
   ControlStateManagement<NumericState> &
-  Either<ValidationConfiguration<NumericValidationRules>, object>;
+  Either<ControlValidationConfiguration<NumericValidationRules>, object>;
 
 export type NumericValidationRules = {
   min?: number;

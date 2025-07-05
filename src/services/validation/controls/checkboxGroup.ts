@@ -1,10 +1,10 @@
 // Types
 import {
-  SelectionState,
+  CheckboxGroupSelectionState,
   CheckboxGroupProps,
   CheckboxGroupValidationRules,
 } from '../../../types/controls/checkboxGroup';
-import { ValidationMessages } from '../../../types/contexts/forms';
+import { FormValidationMessages } from '../../../types/contexts/forms';
 
 // Services
 import { manipulateContent } from '../../../services/utils/resource';
@@ -14,8 +14,8 @@ import validationContent from '../../../content/validation.json';
 import componentValidationContent from '../../../content/componentValidation.json';
 
 type Validate = {
-  values: SelectionState[];
-  validationMessages: ValidationMessages;
+  values: CheckboxGroupSelectionState[];
+  validationMessages: FormValidationMessages;
   ruleSet: CheckboxGroupValidationRules | undefined;
 };
 

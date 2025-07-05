@@ -1,5 +1,5 @@
 // Types
-import { ValidationMessages } from '../../../types/contexts/forms';
+import { FormValidationMessages } from '../../../types/contexts/forms';
 import { CheckboxValidationRules } from '../../../types/controls/checkbox';
 
 // Static Content
@@ -7,7 +7,7 @@ import validationContent from '../../../content/validation.json';
 
 type Validate = {
   value: boolean;
-  validationMessages: ValidationMessages;
+  validationMessages: FormValidationMessages;
   ruleSet: CheckboxValidationRules | undefined;
 };
 

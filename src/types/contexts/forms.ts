@@ -1,17 +1,17 @@
 import { ReactNode } from 'react';
 
-export type Context = {
-  validationMessages: ValidationMessages;
+export type FormProviderContext = {
+  validationMessages: FormValidationMessages;
 };
 
-export type ProviderProps = {
+export type FormProviderProps = {
   children: ReactNode;
 
   /** Configuring this will override the default state of the validation messages. */
-  overridenMessages?: ValidationMessages;
+  overridenMessages?: FormValidationMessages;
 };
 
-export type ValidationMessages = {
+export type FormValidationMessages = {
   isRequired?: string;
   invalidEmail?: string;
   textNotNumeric?: string;

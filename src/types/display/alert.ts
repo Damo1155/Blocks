@@ -10,9 +10,9 @@ export type AlertProps = {
 
   /** Providing this will append your button or anchor inline with the `children` property */
   action?: ReactNode;
-} & DismissAction;
+} & AlertDismissAction;
 
-export type DismissAction = {
+export type AlertDismissAction = {
   onDismiss: (value: boolean) => void;
 
   /** Rendered on the dismiss button as an `aria-label` */

@@ -1,10 +1,10 @@
 // Types
-import { ValidationMessages } from '../types/contexts/forms';
+import { FormValidationMessages } from '../types/contexts/forms';
 
 // Static Content
 import content from '../content/validation.json';
 
-export const validationMessages: ValidationMessages = {
+export const validationMessages: FormValidationMessages = {
   isRequired: content['validation-is-required'],
   textNotNumeric: content['validation-not-numeric'],
   invalidEmail: content['validation-invalid-email-address'],
