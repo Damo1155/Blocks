@@ -18,8 +18,8 @@ type ValidateRequest =
   | NumericProps
   | TextAreaProps
   | PasswordProps
-  | PostalCodeProps
-  | CheckboxProps;
+  | CheckboxProps
+  | PostalCodeProps;
 
 export const validateComponentConfiguration = ({
   id,

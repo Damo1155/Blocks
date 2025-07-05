@@ -15,7 +15,7 @@ import { DateOfBirthState } from '@/types/controls/dateOfBirth';
 import { FormProvider } from '@/contexts/FormProvider';
 
 // Components
-import { DateOfBirth } from '@/index';
+import { Button, DateOfBirth } from '@/index';
 
 const Page = () => {
   const [validate, setValidate] = useState<boolean>(false);
@@ -44,6 +44,17 @@ const Page = () => {
           setValidate={setValidate}
           validationRules={{ required: true }}
         />
+
+        {/* text-sm text-white data-active:bg-sky-700 */}
+        <Button
+          disabled
+          type="button"
+          onClick={() => []}
+          variant="informative"
+          cursor="cursor-pointer"
+        >
+          Submit
+        </Button>
       </form>
     </FormProvider>
   );

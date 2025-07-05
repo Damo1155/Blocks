@@ -1,6 +1,8 @@
 import { ReactNode } from 'react';
 import type { Metadata } from 'next';
 
+import './output.css';
+
 export const metadata: Metadata = {
   title: 'Component Testing Environment',
 };

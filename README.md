@@ -10,7 +10,6 @@ TODOs
 - Embed a compiler in here to manage building the package for dist consumption
 - Following Control Components are still needed
   - Date Picker
-  - Date of Birth
   - Radio Group
   - Slider/Progress Bar (maybe?)
 - If possible, get a branching policy embedded

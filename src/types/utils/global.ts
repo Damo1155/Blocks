@@ -1,3 +1,4 @@
+import { CursorType } from '../styling/cursor';
 import { Margin, Padding } from '../styling/spacing';
 
 export type ClassNames = {
@@ -7,6 +8,13 @@ export type ClassNames = {
    * it's utilisation is for anything uncommon or not yet supported as a property
    * into the component. */
   className?: string;
+};
+
+export type ClassNameOverride = {
+  /** Whilst this can be used alongside `className` the primary purpose of this
+   * property is to completely remove all out of the box stylisation and replace
+   * it with your own. */
+  classNameOverride?: string;
 };
 
 export type ReactKey = {
@@ -27,4 +35,12 @@ export type MarginConfiguration = {
 export type PaddingConfiguration = {
   /** Adds the Padding configuration to the container */
   padding?: Padding;
+};
+
+export type AddCursorPointer = {
+  /** Adds a cursor to the element.
+   *
+   * **Note**: When used alongside a Link and Button will switch to 'cursor-not-allowed' when disabled.
+   */
+  cursor: CursorType;
 };
