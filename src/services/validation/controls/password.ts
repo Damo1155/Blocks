@@ -1,7 +1,7 @@
 import { isEmpty } from 'validator';
 
 // Types
-import { FormValidationMessages } from '../../../types/contexts/forms';
+import { FormValidationMessages } from '../../../types/contexts/formProvider';
 
 // Services
 import { PasswordValidationRules } from '../../../types/controls/password';

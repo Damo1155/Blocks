@@ -1,6 +1,6 @@
 // Types
-import { FormValidationMessages } from '../../../types/contexts/forms';
 import { CheckboxValidationRules } from '../../../types/controls/checkbox';
+import { FormValidationMessages } from '../../../types/contexts/formProvider';
 
 // Static Content
 import validationContent from '../../../content/validation.json';

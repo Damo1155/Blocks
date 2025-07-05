@@ -1,8 +1,8 @@
 import { isEmpty, isNumeric } from 'validator';
 
 // Types
-import { FormValidationMessages } from '../../../types/contexts/forms';
 import { NumericValidationRules } from '../../../types/controls/numeric';
+import { FormValidationMessages } from '../../../types/contexts/formProvider';
 
 // Services
 import { manipulateContent } from '../../../services/utils/resource';

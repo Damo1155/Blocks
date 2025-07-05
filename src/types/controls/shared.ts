@@ -49,10 +49,10 @@ export type ControlLabelConfiguration = Either<
 
 export type ControlBaseConfiguration = {
   id: string;
+  name?: string;
 };
 
 export type ControlStateManagement<TState> = {
-  name: string;
   state: TState;
   onChange: (state: TState) => void;
 };

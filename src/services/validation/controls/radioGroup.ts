@@ -5,7 +5,7 @@ import {
   RadioGroupProps,
   RadioGroupValidationRules,
 } from '../../../types/controls/radioGroup';
-import { FormValidationMessages } from '../../../types/contexts/forms';
+import { FormValidationMessages } from '../../../types/contexts/formProvider';
 
 // Static Content
 import validationContent from '../../../content/validation.json';

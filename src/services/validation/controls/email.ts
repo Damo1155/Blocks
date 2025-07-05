@@ -1,8 +1,8 @@
 import { isEmpty, isEmail } from 'validator';
 
 // Types
-import { FormValidationMessages } from '../../../types/contexts/forms';
 import { EmailValidationRules } from '../../../types/controls/email';
+import { FormValidationMessages } from '../../../types/contexts/formProvider';
 
 // Static Content
 import content from '../../../content/validation.json';

@@ -11,7 +11,7 @@ import {
   PhoneProps,
   PhoneValidationRules,
 } from '../../../types/controls/phone';
-import { FormValidationMessages } from '../../../types/contexts/forms';
+import { FormValidationMessages } from '../../../types/contexts/formProvider';
 
 // Services
 import { validateComponentConfiguration as sharedValidation } from './shared';

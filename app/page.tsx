@@ -9,18 +9,19 @@ import { TextState } from '@/types/controls/text';
 import { PhoneState } from '@/types/controls/phone';
 import { SwitchState } from '@/types/controls/switch';
 import { CheckboxState } from '@/types/controls/checkbox';
+import { DateOfBirthState } from '@/types/controls/dateOfBirth';
 
 // Contexts
 import { FormProvider } from '@/contexts/FormProvider';
 
 // Components
-import { Alert, Checkbox, Phone, Switch, Text } from '@/index';
+import { DateOfBirth } from '@/index';
 
 const Page = () => {
   const [validate, setValidate] = useState<boolean>(false);
 
-  const [state, setState] = useState<CheckboxState>({
-    value: false,
+  const [state, setState] = useState<DateOfBirthState>({
+    value: '',
     isValid: false,
   });
 
@@ -33,9 +34,16 @@ const Page = () => {
   return (
     <FormProvider>
       <form onSubmit={processForm}>
-        <Alert variant="informative" onDismiss={() => []} dismissText="Dismiss">
-          Message
-        </Alert>
+        <DateOfBirth
+          id=""
+          state={state}
+          onChange={setState}
+          format="MMM dd yyyy"
+          label="Date of Birth"
+          validate={validate}
+          setValidate={setValidate}
+          validationRules={{ required: true }}
+        />
       </form>
     </FormProvider>
   );

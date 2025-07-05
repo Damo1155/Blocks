@@ -1,6 +1,7 @@
 {
   "validation-invalid-postal-code": "Invalid postal code provided",
   "validation-invalid-email-address": "Invalid email address provided.",
+  "validation-missing-fields": "Please ensure all fields have been provided",
 
   "validation-is-required": "This field is required.",
   "validation-exceeded-maximum-length": "Maximum length should not exceed {{maxLength}} characters.",
@@ -18,5 +19,22 @@
   "validation-checkbox-group-minimum-selected": "Select at least {{minimum}} option(s).",
   "validation-checkbox-group-maximum-selected": "Select no more than {{maximum}} option(s).",
 
-  "validation-radio-group-select-option": "Please select an option."
+  "validation-radio-group-select-option": "Please select an option.",
+
+  "validation-minimum-age": "The minimum age is {{Age}}.",
+  "validation-date-in-future": "Date must not be in the future",
+  "validation-invalid-date": "Please ensure a valid date is provided.",
+
+  "validation-day-required": "Day is a required field",
+  "validation-day-not-numeric": "Day may only be a numeric",
+  "validation-day-between": "Day should be between 1 and {{EndDay}}.",
+
+  "validation-month-required": "Month is a required field",
+  "validation-month-not-numeric": "Month may only be a numeric",
+  "validation-month-between": "Month should be between 1 and 12",
+
+  "validation-year-required": "Year is a required field",
+  "validation-year-not-numeric": "Year may only be a numeric",
+  "validation-year-to-early": "Year may not be before {{Year}}",
+  "validation-year-in-future": "Year may not be after {{Year}}"
 }

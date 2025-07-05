@@ -156,7 +156,7 @@ import {
   NumericValidationMessages,
   PhoneNumberValidationMessages,
   CheckboxGroupValidationMessages,
-} from './types/contexts/forms';
+} from './types/contexts/formProvider';
 import {
   DropdownProps,
   DropdownOption,

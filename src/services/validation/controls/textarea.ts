@@ -1,8 +1,8 @@
 import { isEmpty } from 'validator';
 
 // Types
-import { FormValidationMessages } from '../../../types/contexts/forms';
 import { TextAreaValidationRules } from '../../../types/controls/textArea';
+import { FormValidationMessages } from '../../../types/contexts/formProvider';
 
 // Services
 import { manipulateContent } from '../../../services/utils/resource';

@@ -8,8 +8,7 @@ import {
   ControlValidationConfiguration,
 } from './shared';
 import { Either } from '../utils/either';
-
-export type DateOfBirthCountryCodes = 'GB' | 'US';
+import { SupportedShortDateFormats } from '../utils/date';
 
 export type DateOfBirthState = {
   value: string;
@@ -22,21 +21,15 @@ export type DateOfBirthState = {
 };
 
 export type DateOfBirthProps = {
-  labels: DateOfBirthLabels;
-  countryCode: DateOfBirthCountryCodes;
+  /** This is the primary label displayed above the data capture fields */
+  label: string;
+
+  /** Determines how the form and validation will be rendered */
+  format: SupportedShortDateFormats;
 } & ControlRestrictedConfiguration &
   Omit<ControlBaseConfiguration, 'name'> &
   ControlStateManagement<DateOfBirthState> &
   Either<ControlValidationConfiguration<DateOfBirthValidationRules>, object>;
-
-export type DateOfBirthLabels = {
-  day: string;
-  year: string;
-  month: string;
-
-  /** The label which will appear above the input controls */
-  main: string;
-};
 
 export type DateOfBirthUpdateType = 'day' | 'month' | 'year';
 

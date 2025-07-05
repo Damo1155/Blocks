@@ -1,7 +1,7 @@
 import { isPostalCode, isEmpty, PostalCodeLocale } from 'validator';
 
 // Types
-import { FormValidationMessages } from '../../../types/contexts/forms';
+import { FormValidationMessages } from '../../../types/contexts/formProvider';
 import { PostalCodeValidationRules } from '../../../types/controls/postalCode';
 
 // Static Content

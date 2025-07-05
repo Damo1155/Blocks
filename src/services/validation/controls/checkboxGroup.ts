@@ -1,10 +1,10 @@
 // Types
 import {
-  CheckboxGroupSelectionState,
   CheckboxGroupProps,
+  CheckboxGroupSelectionState,
   CheckboxGroupValidationRules,
 } from '../../../types/controls/checkboxGroup';
-import { FormValidationMessages } from '../../../types/contexts/forms';
+import { FormValidationMessages } from '../../../types/contexts/formProvider';
 
 // Services
 import { manipulateContent } from '../../../services/utils/resource';

@@ -1,8 +1,8 @@
 import { isEmpty } from 'validator';
 
 // Types
-import { FormValidationMessages } from '../../../types/contexts/forms';
 import { SelectValidationRules } from '../../../types/controls/select';
+import { FormValidationMessages } from '../../../types/contexts/formProvider';
 
 // Static Content
 import validationContent from '../../../content/validation.json';
