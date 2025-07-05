@@ -1,13 +1,13 @@
 import { isEmpty } from 'validator';
 
 // Types
-import { ValidationMessages } from '@/types/contexts/forms';
+import { ValidationMessages } from '../../../types/contexts/forms';
 
 // Services
-import { PasswordValidationRules } from '@/types/controls/password';
+import { PasswordValidationRules } from '../../../types/controls/password';
 
 // Static Content
-import validationContent from '@/content/validation.json';
+import validationContent from '../../../content/validation.json';
 
 type ValidateRequest = {
   value: string;

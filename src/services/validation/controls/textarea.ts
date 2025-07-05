@@ -1,14 +1,14 @@
 import { isEmpty } from 'validator';
 
 // Types
-import { ValidationMessages } from '@/types/contexts/forms';
-import { TextAreaValidationRules } from '@/types/controls/textArea';
+import { ValidationMessages } from '../../../types/contexts/forms';
+import { TextAreaValidationRules } from '../../../types/controls/textArea';
 
 // Services
-import { manipulateContent } from '@/services/utils/resource';
+import { manipulateContent } from '../../../services/utils/resource';
 
 // Static Content
-import validationContent from '@/content/validation.json';
+import validationContent from '../../../content/validation.json';
 
 type ValidateRequest = {
   value: string;

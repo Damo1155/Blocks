@@ -1,4 +1,4 @@
-import { HTMLAttributeAnchorTarget, ReactNode } from 'react';
+import { HTMLAttributeAnchorTarget, ReactNode, Ref } from 'react';
 
 // Types
 import { ClassNames } from '../utils/global';
@@ -8,6 +8,7 @@ export type LinkProps = {
   rel?: LinkRel;
   type: LinkType;
   children: ReactNode;
+  ref?: Ref<HTMLAnchorElement>;
   target?: HTMLAttributeAnchorTarget;
   onClick?: () => Promise<void> | void;
 } & ClassNames;
@@ -23,8 +24,8 @@ export type LinkRel =
   | 'nofollow'
   | 'bookmark'
   | 'external'
-  | 'alternate'
   | 'noopener'
+  | 'alternate'
   | 'noreferrer';
 
 export type LinkType = 'default' | 'telephone' | 'mailto';

@@ -5,19 +5,22 @@ import { ValidationMessages } from '@/types/contexts/forms';
 import content from '@/content/validation.json';
 
 export const validationMessages: ValidationMessages = {
-  isRequired: content.isRequired,
-  invalidEmail: content.invalidEmail,
-  textNotNumeric: content.notNumeric,
-  invalidPostalCode: content.invalidPostalCode,
-  textMaximumLength: content.exceededMaximumLength,
-  textMinimumLength: content.notExceededMinimumLength,
-  radioGroupSelectAnOption: content.radioGroupSelectAnOption,
+  isRequired: content['validation-is-required'],
+  textNotNumeric: content['validation-not-numeric'],
+  invalidEmail: content['validation-invalid-email-address'],
+  invalidPostalCode: content['validation-invalid-postal-code'],
+  textMaximumLength: content['validation-exceeded-maximum-length'],
+  textMinimumLength: content['validation-not-exceeded-minimum-length'],
+  radioGroupSelectAnOption: content['validation-radio-group-select-option'],
 
-  contactNumberInvalid: content.contactNumberInvalid,
-  contactNumberTooLong: content.contactNumberTooLong,
-  contactNumberTooShort: content.contactNumberTooShort,
+  contactNumberInvalid: content['validation-contact-number-invalid'],
+  contactNumberTooLong: content['validation-contact-number-too-long'],
+  contactNumberTooShort: content['validation-contact-number-too-short'],
 
-  checkboxGroupMaxSelected: content.checkboxGroupMaxSelected,
-  checkboxGroupMinSelected: content.checkboxGroupMinSelected,
-  checkboxGroupInvalidSelection: content.checkboxGroupInvalidSelection,
+  checkboxGroupMaxSelected:
+    content['validation-checkbox-group-maximum-selected'],
+  checkboxGroupMinSelected:
+    content['validation-checkbox-group-minimum-selected'],
+  checkboxGroupInvalidSelection:
+    content['validation-checkbox-group-invalid-selection'],
 };

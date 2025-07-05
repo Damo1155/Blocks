@@ -4,8 +4,10 @@ export type HeadingComponent = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
 
 export type BoxComponent =
   | 'div'
+  | 'nav'
   | 'span'
   | 'time'
+  | 'main'
   | 'aside'
   | 'header'
   | 'footer'
@@ -17,9 +19,8 @@ export type BoxComponent =
 export type TypographyComponent =
   | 'p'
   | 'em'
+  | 'div'
   | 'pre'
-  | 'sup'
-  | 'sub'
   | 'code'
   | 'span'
   | 'time'

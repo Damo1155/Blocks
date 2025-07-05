@@ -4,17 +4,18 @@ import classNames from 'classnames';
 // Types
 import { ListProps } from '../../types/typography/list';
 
-export const List = ({ id, component, children, className }: ListProps) => {
-  const Component = component;
+export const List = ({ options, ol, ul, className }: ListProps) => {
+  const Component = ul !== undefined ? 'ul' : 'ol';
 
   return (
     <Component
-      id={id}
       className={classNames({
+        [`${ol}`]: ol !== undefined,
+        [`${ul}`]: ul !== undefined,
         [`${className}`]: className,
       })}
     >
-      {children.map(({ key, content }) => (
+      {options.map(({ key, content }) => (
         <li key={`list-item-${key}`}>{content}</li>
       ))}
     </Component>

@@ -1,3 +1,5 @@
+'use client';
+
 // Types
 import { ValidationMessageProps } from '@/types/display/validationMessage';
 

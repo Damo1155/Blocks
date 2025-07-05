@@ -1,9 +1,9 @@
 // Types
-import { ValidationMessages } from '@/types/contexts/forms';
-import { CheckboxValidationRules } from '@/types/controls/checkbox';
+import { ValidationMessages } from '../../../types/contexts/forms';
+import { CheckboxValidationRules } from '../../../types/controls/checkbox';
 
 // Static Content
-import content from '@/content/validation.json';
+import validationContent from '../../../content/validation.json';
 
 type Validate = {
   value: boolean;
@@ -23,7 +23,7 @@ export const validate = ({
   const { required } = ruleSet;
 
   if (required && !value) {
-    return validationMessages.isRequired ?? content.isRequired;
+    return validationMessages.isRequired ?? validationContent.isRequired;
   }
 
   return undefined;

@@ -1,36 +1,39 @@
 import {
   CountryCode,
-  parsePhoneNumber,
   isValidPhoneNumber,
+  parsePhoneNumberWithError,
   validatePhoneNumberLength,
 } from 'libphonenumber-js';
 import { isEmpty } from 'validator';
 
 // Types
-import { ValidationMessages } from '@/types/contexts/forms';
-import { PhoneProps, PhoneValidationRules } from '@/types/controls/phone';
+import {
+  PhoneProps,
+  PhoneValidationRules,
+} from '../../../types/controls/phone';
+import { ValidationMessages } from '../../../types/contexts/forms';
 
 // Services
 import { validateComponentConfiguration as sharedValidation } from './shared';
 
 // Static Content
-import validationContent from '@/content/validation.json';
-import componentValidationContent from '@/content/componentValidation.json';
+import validationContent from '../../../content/validation.json';
+import componentValidationContent from '../../../content/componentValidation.json';
 
 type Validate = {
   value: string;
   countryCode: CountryCode;
-  validationMessages: ValidationMessages;
+  validationMessages?: ValidationMessages;
   ruleSet: PhoneValidationRules | undefined;
 };
 
 export const validate = (request: Validate): string | undefined => {
   // Important  : Even if the `ruleSet` hasn't been provided we still need to
   //              validate the underlying value to ensure it's a valid phone number.
-
   if (request.ruleSet?.required && isEmpty(request.value)) {
     return (
-      request.validationMessages.isRequired ?? validationContent.isRequired
+      request.validationMessages?.isRequired ??
+      validationContent['validation-is-required']
     );
   }
 
@@ -47,23 +50,18 @@ const validateNumber = ({
   }
 
   try {
-    // Purpose  : `INVALID_COUNTRY` below validates it's a known country code, it does not
-    //            validate against the one which has been provided
-    // Source   : https://www.npmjs.com/package/libphonenumber-js#isvalidphonenumberforcountryinput-string-country-string-boolean
-    const { country } = parsePhoneNumber(value, {
-      defaultCountry: countryCode,
-    });
+    const { country } = parsePhoneNumberWithError(value, countryCode);
 
     if (country !== countryCode) {
       return (
-        validationMessages.contactNumberInvalid ??
-        validationContent.contactNumberInvalid
+        validationMessages?.contactNumberInvalid ??
+        validationContent['validation-contact-number-invalid']
       );
     }
   } catch {
     return (
-      validationMessages.contactNumberInvalid ??
-      validationContent.contactNumberInvalid
+      validationMessages?.contactNumberInvalid ??
+      validationContent['validation-contact-number-invalid']
     );
   }
 
@@ -72,20 +70,20 @@ const validateNumber = ({
   if (validateLength !== undefined) {
     const response = {
       TOO_LONG: () =>
-        validationMessages.contactNumberTooLong ??
-        validationContent.contactNumberTooLong,
+        validationMessages?.contactNumberTooLong ??
+        validationContent['validation-contact-number-too-long'],
       TOO_SHORT: () =>
-        validationMessages.contactNumberTooShort ??
-        validationContent.contactNumberTooShort,
+        validationMessages?.contactNumberTooShort ??
+        validationContent['validation-contact-number-too-short'],
       NOT_A_NUMBER: () =>
-        validationMessages.contactNumberInvalid ??
-        validationContent.contactNumberInvalid,
+        validationMessages?.contactNumberInvalid ??
+        validationContent['validation-contact-number-invalid'],
       INVALID_LENGTH: () =>
-        validationMessages.contactNumberInvalid ??
-        validationContent.contactNumberInvalid,
+        validationMessages?.contactNumberInvalid ??
+        validationContent['validation-contact-number-invalid'],
       INVALID_COUNTRY: () =>
-        validationMessages.contactNumberInvalid ??
-        validationContent.contactNumberInvalid,
+        validationMessages?.contactNumberInvalid ??
+        validationContent['validation-contact-number-invalid'],
     }[validateLength]();
 
     return response;
@@ -93,8 +91,8 @@ const validateNumber = ({
 
   if (!isValidPhoneNumber(value, countryCode)) {
     return (
-      validationMessages.contactNumberInvalid ??
-      validationContent.contactNumberInvalid
+      validationMessages?.contactNumberInvalid ??
+      validationContent['validation-contact-number-invalid']
     );
   }
 

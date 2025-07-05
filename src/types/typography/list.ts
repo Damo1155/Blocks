@@ -1,14 +1,39 @@
 import { ReactNode } from 'react';
 
 // Types
-import { ListComponent } from '../utils/html';
+import { Either } from '../utils/either';
 import { ClassNames, ReactKey } from '../utils/global';
 
+export type OrderedListStyle =
+  | 'ol-default'
+  | 'list-style-type-none'
+  | 'list-style-type-decimal'
+  | 'list-style-type-lower-alpha'
+  | 'list-style-type-upper-alpha'
+  | 'list-style-type-lower-roman'
+  | 'list-style-type-upper-roman';
+
+export type UnorderedListStyle =
+  | 'ul-default'
+  | 'list-style-type-none'
+  | 'list-style-type-disc'
+  | 'list-style-type-square'
+  | 'list-style-type-circle';
+
 export type ListProps = {
-  id?: string;
-  children: ListOption[];
-  component: ListComponent;
-} & ClassNames;
+  options: ListOption[];
+} & ClassNames &
+  Either<OrderedList, UnorderedList>;
+
+export type OrderedList = {
+  /** `ol-default` will render a standard `ol` with no styling overrides */
+  ol: OrderedListStyle;
+};
+
+export type UnorderedList = {
+  /** `ul-default` will render a standard `ul` with no styling overrides */
+  ul: UnorderedListStyle;
+};
 
 export type ListOption = {
   content: ReactNode;

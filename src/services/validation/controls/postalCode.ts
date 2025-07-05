@@ -1,11 +1,11 @@
 import { isPostalCode, isEmpty, PostalCodeLocale } from 'validator';
 
 // Types
-import { ValidationMessages } from '@/types/contexts/forms';
-import { PostalCodeValidationRules } from '@/types/controls/postalCode';
+import { ValidationMessages } from '../../../types/contexts/forms';
+import { PostalCodeValidationRules } from '../../../types/controls/postalCode';
 
 // Static Content
-import validationContent from '@/content/validation.json';
+import validationContent from '../../../content/validation.json';
 
 type ValidateRequest = {
   value: string;

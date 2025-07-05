@@ -8,8 +8,8 @@ import {
 import { ValidationMessages } from '@/types/contexts/forms';
 
 // Static Content
-import validationContent from '@/content/validation.json';
-import componentValidationContent from '@/content/componentValidation.json';
+import validationContent from '../../../content/validation.json';
+import componentValidationContent from '../../../content/componentValidation.json';
 
 type Validate = {
   value: string;

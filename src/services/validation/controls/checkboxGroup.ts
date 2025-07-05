@@ -4,14 +4,14 @@ import {
   CheckboxGroupProps,
   CheckboxGroupValidationRules,
 } from '../../../types/controls/checkboxGroup';
-import { ValidationMessages } from '@/types/contexts/forms';
+import { ValidationMessages } from '../../../types/contexts/forms';
 
 // Services
-import { manipulateContent } from '@/services/utils/resource';
+import { manipulateContent } from '../../../services/utils/resource';
 
 // Static Content
-import validationContent from '@/content/validation.json';
-import componentValidationContent from '@/content/componentValidation.json';
+import validationContent from '../../../content/validation.json';
+import componentValidationContent from '../../../content/componentValidation.json';
 
 type Validate = {
   values: SelectionState[];

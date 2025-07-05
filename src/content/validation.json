@@ -1,22 +1,22 @@
 {
-  "invalidPostalCode": "Invalid postcode provided",
-  "invalidEmail": "Invalid email address provided.",
+  "validation-invalid-postal-code": "Invalid postal code provided",
+  "validation-invalid-email-address": "Invalid email address provided.",
 
-  "isRequired": "This field is required.",
-  "exceededMaximumLength": "Maximum length should not exceed {{maxLength}} characters.",
-  "notExceededMinimumLength": "Minimum length should be at least {{minLength}} characters.",
+  "validation-is-required": "This field is required.",
+  "validation-exceeded-maximum-length": "Maximum length should not exceed {{maxLength}} characters.",
+  "validation-not-exceeded-minimum-length": "Minimum length should be at least {{minLength}} characters.",
 
-  "contactNumberInvalid": "Contact number invalid.",
-  "contactNumberTooLong": "Contact number too long.",
-  "contactNumberTooShort": "Contact number too short.",
+  "validation-contact-number-invalid": "Contact number invalid.",
+  "validation-contact-number-too-long": "Contact number too long.",
+  "validation-contact-number-too-short": "Contact number too short.",
 
-  "notNumeric": "This field should be numeric",
-  "numericMinNumber": "Please ensure the value is at least {{minimum}}.",
-  "numericMaxNumber": "Please ensure the value is no greater than {{maximum}}.",
+  "validation-not-numeric": "This field should be numeric",
+  "validation-numeric-minimum-number": "Please ensure the value is at least {{minimum}}.",
+  "validation-numeric-maximum-number": "Please ensure the value is no greater than {{maximum}}.",
 
-  "checkboxGroupInvalidSelection": "Invalid selection.",
-  "checkboxGroupMinSelected": "Select at least {{minimum}} option(s).",
-  "checkboxGroupMaxSelected": "Select no more than {{maximum}} option(s).",
+  "validation-checkbox-group-invalid-selection": "Invalid selection.",
+  "validation-checkbox-group-minimum-selected": "Select at least {{minimum}} option(s).",
+  "validation-checkbox-group-maximum-selected": "Select no more than {{maximum}} option(s).",
 
-  "radioGroupSelectAnOption": "Please select an option."
+  "validation-radio-group-select-option": "Please select an option."
 }

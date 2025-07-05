@@ -13,7 +13,7 @@ import {
   validate,
   validateComponentConfiguration,
 } from '../../services/validation/controls/radioGroup';
-import { toKebabCase } from '@/services/utils/extensions/string';
+import { toKebabCase } from '@/services/utils/string';
 
 // Components
 import { ValidationMessage } from '@/components/display/ValidationMessage';
@@ -102,15 +102,15 @@ export const RadioGroup = (props: RadioGroupProps) => {
             const key = `${id}-${convertLabel}`;
 
             return (
-              <label htmlFor={key}>
+              <label key={key} htmlFor={key}>
                 <input
                   id={key}
                   name={name}
                   type="radio"
                   value={option.value}
+                  required={validationRules?.required}
                   disabled={option.disabled || disabled}
                   readOnly={option.readOnly || readOnly}
-                  aria-required={validationRules?.required}
                   checked={state.radioValue === option.value}
                   onChange={() => onRadioChange(option.value)}
                 />

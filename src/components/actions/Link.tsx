@@ -6,6 +6,7 @@ import { LinkProps } from '../../types/actions/links';
 
 export const Link = ({
   to,
+  ref,
   rel,
   type,
   target,
@@ -21,11 +22,12 @@ export const Link = ({
 
   return (
     <a
+      ref={ref}
       rel={rel}
       target={target}
       onClick={onClick}
       href={formattedUrl}
-      className={classNames({
+      className={classNames('link', {
         [`${className}`]: className,
       })}
     >

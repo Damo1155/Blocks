@@ -1,3 +1,5 @@
+'use client';
+
 import React from 'react';
 
 // Types
@@ -18,8 +20,8 @@ export const Alert = ({
 }: AlertProps) => (
   <div role="alert" aria-atomic={true}>
     <div>
-      {children}
-      {action}
+      <div>{children}</div>
+      {action && <div>{action}</div>}
     </div>
 
     {onDismiss && (

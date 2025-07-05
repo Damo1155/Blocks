@@ -2,7 +2,7 @@
 import { SwitchProps } from '@/types/controls/switch';
 
 // Static Content
-import content from '@/content/componentValidation.json';
+import componentValidationContent from '../../../content/componentValidation.json';
 
 export const validateComponentConfiguration = ({
   id,
@@ -13,22 +13,30 @@ export const validateComponentConfiguration = ({
   ariaLabel,
 }: SwitchProps) => {
   if (!state) {
-    throw new Error(content['component-control-state-missing']);
+    throw new Error(
+      componentValidationContent['component-control-state-missing'],
+    );
   }
 
   if (!id) {
-    throw new Error(content['component-control-id-missing']);
+    throw new Error(componentValidationContent['component-control-id-missing']);
   }
 
   if (!name) {
-    throw new Error(content['component-control-name-missing']);
+    throw new Error(
+      componentValidationContent['component-control-name-missing'],
+    );
   }
 
   if (!onChange) {
-    throw new Error(content['component-control-onChange-missing']);
+    throw new Error(
+      componentValidationContent['component-control-onChange-missing'],
+    );
   }
 
   if (!label && !ariaLabel) {
-    throw new Error(content['component-control-label-missing']);
+    throw new Error(
+      componentValidationContent['component-control-label-missing'],
+    );
   }
 };

@@ -8,7 +8,7 @@ import { TextValidationRules } from '@/types/controls/text';
 import { manipulateContent } from '@/services/utils/resource';
 
 // Static Content
-import validationContent from '@/content/validation.json';
+import validationContent from '../../../content/validation.json';
 
 type ValidateRequest = {
   value: string;

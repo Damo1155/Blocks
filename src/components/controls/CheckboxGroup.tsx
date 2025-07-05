@@ -106,7 +106,7 @@ export const CheckboxGroup = (props: CheckboxGroupProps) => {
         {helpMessage && <div>{helpMessage}</div>}
 
         {state.selection.map((option) => {
-          const optionIdentifier = `${id}-${option.id}`;
+          const key = `${id}-${option.id}`;
 
           const isRequired =
             validationRules?.minChecked !== undefined &&
@@ -114,12 +114,12 @@ export const CheckboxGroup = (props: CheckboxGroupProps) => {
             selected.length > validationRules.minChecked;
 
           return (
-            <div>
-              <label htmlFor={optionIdentifier}>
+            <div key={key}>
+              <label htmlFor={key}>
                 <input
+                  id={key}
+                  name={key}
                   type="checkbox"
-                  id={optionIdentifier}
-                  name={optionIdentifier}
                   checked={option.checked}
                   aria-required={isRequired}
                   disabled={disabled || option.disabled}

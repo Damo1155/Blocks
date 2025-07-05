@@ -1,7 +1,12 @@
 import { ReactNode } from 'react';
 
 // Types
-import { ClassNames } from '../utils/global';
+import {
+  ClassNames,
+  ScreenReaderOnly,
+  MarginConfiguration,
+  PaddingConfiguration,
+} from '../utils/global';
 import { TypographyComponent } from '../utils/html';
 
 export type TypographyProps = {
@@ -11,4 +16,7 @@ export type TypographyProps = {
   /** If an array is provided each element in that array will
    * be converted to use the `markup` attribute */
   children: ReactNode;
-} & ClassNames;
+} & ClassNames &
+  ScreenReaderOnly &
+  MarginConfiguration &
+  PaddingConfiguration;

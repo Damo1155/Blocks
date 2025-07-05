@@ -5,7 +5,7 @@ import { ValidationMessages } from '@/types/contexts/forms';
 import { SelectValidationRules } from '@/types/controls/select';
 
 // Static Content
-import validationContent from '@/content/validation.json';
+import validationContent from '../../../content/validation.json';
 
 type ValidateSelect = {
   value: string;

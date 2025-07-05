@@ -10,7 +10,7 @@ import { useFormContext } from '@/contexts/FormProvider';
 
 // Services
 import { validate } from '@/services/validation/controls/select';
-import { toKebabCase } from '@/services/utils/extensions/string';
+import { toKebabCase } from '@/services/utils/string';
 import { validateComponentConfiguration } from '@/services/validation/controls/shared';
 
 // Components
