@@ -1,4 +1,6 @@
 import { KeyboardEvent, FocusEvent } from 'react';
+
+// Types
 import { Either } from '../utils/either';
 
 type SupportedInputTypes = HTMLInputElement | HTMLTextAreaElement;

@@ -1,4 +1,6 @@
 import { ReactNode } from 'react';
+
+// Types
 import { ClassNames } from '../utils/global';
 
 type ScrollEventTypes = 'window' | (string & {});

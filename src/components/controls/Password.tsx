@@ -3,17 +3,17 @@
 import React, { useEffect, useState, FocusEvent } from 'react';
 
 // Types
-import { PasswordProps } from '@/types/controls/password';
+import { PasswordProps } from '../../types/controls/password';
 
 // Contexts
-import { useFormContext } from '@/contexts/FormProvider';
+import { useFormContext } from '../../contexts/FormProvider';
 
 // Services
-import { validate } from '@/services/validation/controls/password';
-import { validateComponentConfiguration } from '@/services/validation/controls/shared';
+import { validate } from '../../services/validation/controls/password';
+import { validateComponentConfiguration } from '../../services/validation/controls/shared';
 
 // Components
-import { ValidationMessage } from '@/components/display/ValidationMessage';
+import { ValidationMessage } from '../../components/display/ValidationMessage';
 
 export const Password = (props: PasswordProps) => {
   validateComponentConfiguration(props);

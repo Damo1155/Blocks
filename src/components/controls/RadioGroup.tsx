@@ -13,10 +13,10 @@ import {
   validate,
   validateComponentConfiguration,
 } from '../../services/validation/controls/radioGroup';
-import { toKebabCase } from '@/services/utils/string';
+import { toKebabCase } from '../../services/utils/string';
 
 // Components
-import { ValidationMessage } from '@/components/display/ValidationMessage';
+import { ValidationMessage } from '../../components/display/ValidationMessage';
 
 export const RadioGroup = (props: RadioGroupProps) => {
   validateComponentConfiguration(props);

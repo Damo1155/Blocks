@@ -3,18 +3,18 @@
 import React, { useState, useEffect } from 'react';
 
 // Types
-import { SelectProps } from '@/types/controls/select';
+import { SelectProps } from '../../types/controls/select';
 
 // Contexts
-import { useFormContext } from '@/contexts/FormProvider';
+import { useFormContext } from '../../contexts/FormProvider';
 
 // Services
-import { validate } from '@/services/validation/controls/select';
-import { toKebabCase } from '@/services/utils/string';
-import { validateComponentConfiguration } from '@/services/validation/controls/shared';
+import { toKebabCase } from '../../services/utils/string';
+import { validate } from '../../services/validation/controls/select';
+import { validateComponentConfiguration } from '../../services/validation/controls/shared';
 
 // Components
-import { ValidationMessage } from '@/components/display/ValidationMessage';
+import { ValidationMessage } from '../../components/display/ValidationMessage';
 
 export const Select = (props: SelectProps) => {
   validateComponentConfiguration(props);

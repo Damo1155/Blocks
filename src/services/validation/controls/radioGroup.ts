@@ -5,7 +5,7 @@ import {
   RadioGroupProps,
   RadioGroupValidationRules,
 } from '../../../types/controls/radioGroup';
-import { ValidationMessages } from '@/types/contexts/forms';
+import { ValidationMessages } from '../../../types/contexts/forms';
 
 // Static Content
 import validationContent from '../../../content/validation.json';
@@ -29,7 +29,7 @@ export const validate = ({
   if (ruleSet?.required && isEmpty(value)) {
     return (
       validationMessages.radioGroupSelectAnOption ??
-      validationContent.radioGroupSelectAnOption
+      validationContent['validation-radio-group-select-option']
     );
   }
 

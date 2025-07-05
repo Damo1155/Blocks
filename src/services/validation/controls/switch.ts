@@ -1,5 +1,5 @@
 // Types
-import { SwitchProps } from '@/types/controls/switch';
+import { SwitchProps } from '../../../types/controls/switch';
 
 // Static Content
 import componentValidationContent from '../../../content/componentValidation.json';

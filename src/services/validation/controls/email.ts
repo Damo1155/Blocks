@@ -1,11 +1,11 @@
 import { isEmpty, isEmail } from 'validator';
 
 // Types
-import { ValidationMessages } from '@/types/contexts/forms';
-import { EmailValidationRules } from '@/types/controls/email';
+import { ValidationMessages } from '../../../types/contexts/forms';
+import { EmailValidationRules } from '../../../types/controls/email';
 
 // Static Content
-import content from '@/content/validation.json';
+import content from '../../../content/validation.json';
 
 type Validate = {
   value: string;
@@ -22,11 +22,14 @@ export const validate = ({
   //              validate the underlying value to ensure it's a valid email address.
 
   if (ruleSet?.required && isEmpty(value)) {
-    return validationMessages.isRequired ?? content.isRequired;
+    return validationMessages.isRequired ?? content['validation-is-required'];
   }
 
   if (!isEmpty(value) && !isEmail(value)) {
-    return validationMessages.invalidEmail ?? content.invalidEmail;
+    return (
+      validationMessages.invalidEmail ??
+      content['validation-invalid-email-address']
+    );
   }
 
   return undefined;

@@ -1,8 +1,8 @@
 import { isEmpty } from 'validator';
 
 // Types
-import { ValidationMessages } from '@/types/contexts/forms';
-import { SelectValidationRules } from '@/types/controls/select';
+import { ValidationMessages } from '../../../types/contexts/forms';
+import { SelectValidationRules } from '../../../types/controls/select';
 
 // Static Content
 import validationContent from '../../../content/validation.json';
@@ -25,7 +25,10 @@ export const validate = ({
   const { required } = ruleSet;
 
   if (required && isEmpty(value)) {
-    return validationMessages.isRequired ?? validationContent.isRequired;
+    return (
+      validationMessages.isRequired ??
+      validationContent['validation-is-required']
+    );
   }
 
   return undefined;

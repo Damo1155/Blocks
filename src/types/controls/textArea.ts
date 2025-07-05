@@ -8,7 +8,7 @@ import {
   RestrictedConfiguration,
   ValidationConfiguration,
   BaseControlConfiguration,
-} from '@/types/controls/shared';
+} from '../controls/shared';
 import { Either } from '../utils/either';
 
 export type TextAreaProps = {

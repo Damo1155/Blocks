@@ -3,17 +3,17 @@
 import React, { useEffect, useState, FocusEvent } from 'react';
 
 // Types
-import { NumericProps } from '@/types/controls/numeric';
+import { NumericProps } from '../../types/controls/numeric';
 
 // Contexts
-import { useFormContext } from '@/contexts/FormProvider';
+import { useFormContext } from '../../contexts/FormProvider';
 
 // Services
-import { validate } from '@/services/validation/controls/numeric';
-import { validateComponentConfiguration } from '@/services/validation/controls/shared';
+import { validate } from '../../services/validation/controls/numeric';
+import { validateComponentConfiguration } from '../../services/validation/controls/shared';
 
 // Components
-import { ValidationMessage } from '@/components/display/ValidationMessage';
+import { ValidationMessage } from '../../components/display/ValidationMessage';
 
 export const Numeric = (props: NumericProps) => {
   validateComponentConfiguration(props);

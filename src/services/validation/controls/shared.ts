@@ -1,15 +1,15 @@
 // Types
-import { TextProps } from '@/types/controls/text';
-import { PhoneProps } from '@/types/controls/phone';
-import { SelectProps } from '@/types/controls/select';
-import { NumericProps } from '@/types/controls/numeric';
-import { TextAreaProps } from '@/types/controls/textArea';
-import { PasswordProps } from '@/types/controls/password';
-import { CheckboxProps } from '@/types/controls/checkbox';
-import { PostalCodeProps } from '@/types/controls/postalCode';
+import { TextProps } from '../../../types/controls/text';
+import { PhoneProps } from '../../../types/controls/phone';
+import { SelectProps } from '../../../types/controls/select';
+import { NumericProps } from '../../../types/controls/numeric';
+import { TextAreaProps } from '../../../types/controls/textArea';
+import { PasswordProps } from '../../../types/controls/password';
+import { CheckboxProps } from '../../../types/controls/checkbox';
+import { PostalCodeProps } from '../../../types/controls/postalCode';
 
 // Static Content
-import content from '@/content/componentValidation.json';
+import content from '../../../content/componentValidation.json';
 
 type ValidateRequest =
   | TextProps

@@ -3,17 +3,17 @@
 import React, { useEffect, useState, FocusEvent } from 'react';
 
 // Types
-import { TextProps } from '@/types/controls/text';
+import { TextProps } from '../../types/controls/text';
 
 // Contexts
-import { useFormContext } from '@/contexts/FormProvider';
+import { useFormContext } from '../../contexts/FormProvider';
 
 // Services
-import { validate } from '@/services/validation/controls/text';
-import { validateComponentConfiguration } from '@/services/validation/controls/shared';
+import { validate } from '../../services/validation/controls/text';
+import { validateComponentConfiguration } from '../../services/validation/controls/shared';
 
 // Components
-import { ValidationMessage } from '@/components/display/ValidationMessage';
+import { ValidationMessage } from '../../components/display/ValidationMessage';
 
 export const Text = (props: TextProps) => {
   validateComponentConfiguration(props);

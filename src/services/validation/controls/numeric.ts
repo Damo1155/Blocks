@@ -1,14 +1,14 @@
 import { isEmpty, isNumeric } from 'validator';
 
 // Types
-import { ValidationMessages } from '@/types/contexts/forms';
-import { NumericValidationRules } from '@/types/controls/numeric';
+import { ValidationMessages } from '../../../types/contexts/forms';
+import { NumericValidationRules } from '../../../types/controls/numeric';
 
 // Services
-import { manipulateContent } from '@/services/utils/resource';
+import { manipulateContent } from '../../../services/utils/resource';
 
 // Static Content
-import content from '@/content/validation.json';
+import content from '../../../content/validation.json';
 
 type Validate = {
   value: number;
@@ -30,24 +30,30 @@ export const validate = ({
   const valueToString = value.toString();
 
   if (required && isEmpty(valueToString)) {
-    return validationMessages.isRequired ?? content.isRequired;
+    return validationMessages.isRequired ?? content['validation-is-required'];
   }
 
   if (!isNumeric(valueToString)) {
-    return validationMessages.textNotNumeric ?? content.notNumeric;
+    return (
+      validationMessages.textNotNumeric ?? content['validation-not-numeric']
+    );
   }
 
   if (min !== undefined && value < min) {
     return manipulateContent({
       replacements: { '{{minimum}}': min.toString() },
-      content: validationMessages.numericMinNumber ?? content.numericMinNumber,
+      content:
+        validationMessages.numericMinNumber ??
+        content['validation-numeric-minimum-number'],
     });
   }
 
   if (max !== undefined && value > max) {
     return manipulateContent({
       replacements: { '{{maximum}}': max.toString() },
-      content: validationMessages.numericMaxNumber ?? content.numericMaxNumber,
+      content:
+        validationMessages.numericMaxNumber ??
+        content['validation-numeric-maximum-number'],
     });
   }
 

@@ -10,10 +10,10 @@ import { useFormContext } from '../../contexts/FormProvider';
 
 // Services
 import { validate } from '../../services/validation/controls/checkbox';
-import { validateComponentConfiguration } from '@/services/validation/controls/shared';
+import { validateComponentConfiguration } from '../../services/validation/controls/shared';
 
 // Components
-import { ValidationMessage } from '@/components/display/ValidationMessage';
+import { ValidationMessage } from '../../components/display/ValidationMessage';
 
 export const Checkbox = (props: CheckboxProps) => {
   validateComponentConfiguration(props);
